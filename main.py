@@ -16,6 +16,65 @@ output_directory_text_images = ""
 output_directory_numbering = ""
 # Настройка логирования
 logging.basicConfig(filename="process.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+
+def extract_data_from_pdf(pdf_path, output_dir):
+    """
+    Извлекает текст и изображения из PDF.
+    :param pdf_path: Путь к PDF файлу
+    :param output_dir: Директория для сохранения изображений
+    :return: Извлечённый текст
+    """
+    try:
+        data = ""
+        with fitz.open(pdf_path) as pdf_file:
+            for i, page in enumerate(pdf_file):
+                data += page.get_text()
+                # Извлечение изображений
+                images = page.get_images(full=True)
+                for img_index, img in enumerate(images):
+                    xref = img[0]
+                    pix = fitz.Pixmap(pdf_file, xref)
+                    if pix.n > 4:  # если изображение в формате CMYK, конвертируем в RGB
+                        pix = fitz.Pixmap(fitz.csRGB, pix)
+                    image_path = os.path.join(output_dir, f"page_{i + 1}_image_{img_index + 1}.png")
+                    pix.save(image_path)
+                    logging.info(f"Изображение сохранено: {image_path}")
+                    pix = None  # освобождение памяти
+        logging.info(f"Текст успешно извлечён из {pdf_path}")
+        return data
+    except Exception as e:
+        logging.error(f"Ошибка при извлечении текста из {pdf_path}: {str(e)}")
+        return ""
+
+
+def extract_data_from_docx(docx_path, output_dir):
+    """
+    Извлекает текст и изображения из документа Word (.docx).
+    :param docx_path: Путь к документу Word
+    :param output_dir: Директория для сохранения изображений
+    :return: Извлечённый текст
+    """
+    try:
+        doc = Document(docx_path)
+        data = "\n".join([paragraph.text for paragraph in doc.paragraphs])
+
+        # Извлечение изображений
+        for rel in doc.rels.values():
+            if "image" in rel.target_ref:
+                img = rel.target_part.blob
+                image_path = os.path.join(output_dir, f"{rel.target_ref.split('/')[-1]}")
+                with open(image_path, "wb") as f:
+                    f.write(img)
+                logging.info(f"Изображение сохранено: {image_path}")
+
+        logging.info(f"Текст успешно извлечён из {docx_path}")
+        return data
+    except Exception as e:
+        logging.error(f"Ошибка при извлечении текста из {docx_path}: {str(e)}")
+        return ""
+
+
 def extract_data_from_txt(txt_path):
     """
     Извлекает текст из текстового файла (.txt).
@@ -41,40 +100,6 @@ def select_output_directory_for_numbering():
     output_directory_numbering = filedialog.askdirectory(title="Выберите директорию для вывода с нумерацией")
     if output_directory_numbering:
         logging.info(f"Директория для нумерации установлена: {output_directory_numbering}")
-def extract_data_from_docx(docx_path):
-    """
-    Извлекает текст из документа Word (.docx).
-    :param docx_path: Путь к документу Word
-    :return: Извлечённый текст
-    """
-    try:
-        doc = Document(docx_path)
-        data = "\n".join([paragraph.text for paragraph in doc.paragraphs])
-        logging.info(f"Текст успешно извлечён из {docx_path}")
-        return data
-    except Exception as e:
-        logging.error(f"Ошибка при извлечении текста из {docx_path}: {str(e)}")
-        return ""
-
-
-def extract_data_from_pdf(pdf_path):
-    """
-    Извлекает текст из PDF.
-    :param pdf_path: Путь к PDF файлу
-    :return: Извлечённый текст
-    """
-    try:
-        data = ""
-        with fitz.open(pdf_path) as pdf_file:
-            for page in pdf_file:
-                data += page.get_text()
-        logging.info(f"Текст успешно извлечён из {pdf_path}")
-        return data
-    except Exception as e:
-        logging.error(f"Ошибка при извлечении текста из {pdf_path}: {str(e)}")
-        return ""
-
-
 def extract_data_from_xlsx(xlsx_path):
     """
     Извлекает текст из Excel (.xlsx).
@@ -303,25 +328,30 @@ class DocumentProcessorApp:
             return
 
         extracted_data = ""
+        output_image_dir = os.path.join(directory, "extracted_images")  # Директория для сохранения изображений
+        os.makedirs(output_image_dir, exist_ok=True)  # Создаём директорию, если она не существует
+
         for file_name in os.listdir(directory):
             file_path = os.path.join(directory, file_name)
             _, ext = os.path.splitext(file_name)
 
             if ext.lower() == ".xlsx":
-                extracted_data += f"\n--- Data from {file_name} ---\n"
+                extracted_data += f"\n--- Данные из {file_name} ---\n"
                 extracted_data += extract_data_from_excel(file_path)
 
             elif ext.lower() == ".docx":
-                extracted_data += f"\n--- Data from {file_name} ---\n"
-                extracted_data += extract_data_from_docx(file_path)
+                extracted_data += f"\n--- Данные из {file_name} ---\n"
+                extracted_data += extract_data_from_docx(file_path,
+                                                         output_image_dir)  # Передаём путь для сохранения изображений
 
             elif ext.lower() == ".txt":
-                extracted_data += f"\n--- Data from {file_name} ---\n"
+                extracted_data += f"\n--- Данные из {file_name} ---\n"
                 extracted_data += extract_data_from_txt(file_path)
 
             elif ext.lower() == ".pdf":
-                extracted_data += f"\n--- Data from {file_name} ---\n"
-                extracted_data += extract_data_from_pdf(file_path)
+                extracted_data += f"\n--- Данные из {file_name} ---\n"
+                extracted_data += extract_data_from_pdf(file_path,
+                                                        output_image_dir)  # Передаём путь для сохранения изображений
 
         output_path = os.path.join(directory, "extracted_data.txt")
         with open(output_path, "w", encoding="utf-8") as output_file:
@@ -336,8 +366,9 @@ class DocumentProcessorApp:
         output_directory = self.output_directory.get()
         extracted_data = extract_data_from_excel(reference_path)
         matched_data = compare_with_reference(extracted_data, reference_path)
-        output_path = os.path.join(output_directory, "inventory.docx")
+        output_path = os.path.join(output_directory, "опись.docx")
         create_inventory(matched_data, output_path)
+
 
     def run_apply_numbers(self):
         """Метод для нанесения номеров на файлы."""
