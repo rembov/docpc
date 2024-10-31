@@ -326,3 +326,68 @@
 2024-10-31 17:49:48,625 - ERROR - Ошибка при загрузке справочника : [Errno 2] No such file or directory: ''
 2024-10-31 17:49:48,673 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/123\опись.docx
 2024-10-31 17:50:40,548 - INFO - Файл с номерами выбран: C:/Users/user/Desktop/123/435.xlsx
+2024-10-31 17:55:12,768 - INFO - Файл C:/Users/user/Desktop/123/Документ Microsoft Word.docx переименован и сохранен как C:/Users/user/Desktop/123\5787.docx
+2024-10-31 17:56:31,158 - INFO - Архив выбран: C:/Users/user/Desktop/Новая папка.rar
+2024-10-31 17:57:13,407 - INFO - Архив выбран: C:/Users/user/Desktop/123.rar
+2024-10-31 17:57:34,501 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/Новая папка
+2024-10-31 17:57:36,309 - ERROR - Ошибка извлечения файла C:/Users/user/Desktop/123.rar: Cannot find working tool
+2024-10-31 17:57:47,640 - ERROR - Ошибка извлечения файла C:/Users/user/Desktop/123.rar: Cannot find working tool
+2024-10-31 17:59:46,705 - INFO - Архив выбран: C:/Users/user/Desktop/123.rar
+2024-10-31 17:59:59,720 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/Новая папка
+2024-10-31 18:00:01,735 - ERROR - Ошибка извлечения файла C:/Users/user/Desktop/123.rar: Cannot find working tool
+2024-10-31 18:02:30,954 - INFO - Архив выбран: C:/Users/user/Desktop/123.rar
+2024-10-31 18:02:43,016 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/аааааааааа
+2024-10-31 18:02:44,592 - ERROR - Ошибка извлечения файла C:/Users/user/Desktop/123.rar: Cannot find working tool
+2024-10-31 18:02:45,682 - ERROR - Процесс извлечения завершился с ошибкой.
+2024-10-31 18:04:16,860 - INFO - Архив выбран: C:/Users/user/Desktop/123.rar
+2024-10-31 18:04:28,407 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/ааааааааааа
+2024-10-31 18:04:29,849 - ERROR - Ошибка: архив повреждён или имеет неверный формат C:/Users/user/Desktop/123.rar: Cannot find working tool
+2024-10-31 18:04:34,053 - ERROR - Процесс извлечения завершился с ошибкой.
+2024-10-31 18:05:03,110 - INFO - Архив выбран: C:/Users/user/Desktop/ё12.rar
+2024-10-31 18:05:07,454 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/Новая папка
+2024-10-31 18:05:13,594 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/ааааааааааа
+2024-10-31 18:05:14,566 - ERROR - Ошибка: архив повреждён или имеет неверный формат C:/Users/user/Desktop/ё12.rar: Cannot find working tool
+2024-10-31 18:05:15,528 - ERROR - Процесс извлечения завершился с ошибкой.
+2024-10-31 18:07:50,220 - INFO - Архив выбран: C:/Users/user/Desktop/ё12.rar
+2024-10-31 18:07:59,814 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/ааааааааааа
+2024-10-31 18:08:01,851 - ERROR - Ошибка извлечения файла C:/Users/user/Desktop/ё12.rar: Cannot find working tool
+2024-10-31 18:08:01,851 - ERROR - Процесс извлечения завершился с ошибкой.
+2024-10-31 18:08:05,669 - ERROR - Ошибка извлечения файла C:/Users/user/Desktop/ё12.rar: Cannot find working tool
+2024-10-31 18:08:05,669 - ERROR - Процесс извлечения завершился с ошибкой.
+2024-10-31 18:08:57,111 - INFO - Архив выбран: C:/Users/user/Desktop/ё12.rar
+2024-10-31 18:09:05,079 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/ааааааааааа/ё12
+2024-10-31 18:09:14,687 - ERROR - Ошибка извлечения файла C:/Users/user/Desktop/ё12.rar: Cannot find working tool
+2024-10-31 18:09:14,687 - ERROR - Процесс извлечения завершился с ошибкой.
+2024-10-31 18:15:21,095 - INFO - Архив выбран: C:/Users/user/Desktop/ё12.rar
+2024-10-31 18:15:25,954 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/ааааааааааа
+2024-10-31 18:15:35,159 - ERROR - Ошибка извлечения файла C:/Users/user/Desktop/ё12.rar: Cannot find working tool
+2024-10-31 18:19:06,376 - INFO - Архив выбран: C:/Users/user/Desktop/ё12.rar
+2024-10-31 18:19:11,345 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/ааааааааааа
+2024-10-31 18:19:12,089 - ERROR - Ошибка: архив повреждён или имеет неверный формат C:/Users/user/Desktop/ё12.rar: Cannot find working tool
+2024-10-31 18:19:13,566 - ERROR - Процесс извлечения завершился с ошибкой.
+2024-10-31 18:21:35,625 - INFO - Архив выбран: C:/Users/user/Desktop/123.zip
+2024-10-31 18:21:36,763 - INFO - Архив C:/Users/user/Desktop/123.zip успешно извлечён в C:/Users/user/Desktop/ааааааааааа.
+2024-10-31 18:21:37,975 - INFO - Процесс извлечения завершён успешно.
+2024-10-31 18:29:03,954 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:29:08,267 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:29:10,056 - ERROR - Ошибка извлечения данных из Excel : openpyxl does not support  file format, please check you can open it with Excel first. Supported formats are: .xlsx,.xlsm,.xltx,.xltm
+2024-10-31 18:29:10,058 - ERROR - Ошибка при загрузке справочника : [Errno 2] No such file or directory: ''
+2024-10-31 18:29:10,100 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/123\опись.docx
+2024-10-31 18:31:54,094 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:31:56,501 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:31:57,689 - ERROR - Ошибка извлечения данных из Excel : openpyxl does not support  file format, please check you can open it with Excel first. Supported formats are: .xlsx,.xlsm,.xltx,.xltm
+2024-10-31 18:31:57,690 - ERROR - Ошибка при загрузке справочника : [Errno 2] No such file or directory: ''
+2024-10-31 18:37:42,329 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:37:44,454 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:39:14,533 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:39:17,330 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:47:57,282 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:48:00,110 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:51:58,298 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:52:00,611 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:53:38,767 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:53:40,783 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-10-31 18:53:44,808 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/123\опись.docx
+2024-10-31 18:54:12,272 - INFO - Опись успешно сохранена в опись.docx
+2024-10-31 18:58:36,155 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/123\опись.docx
+2024-10-31 18:59:16,444 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/123\опись.docx

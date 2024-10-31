@@ -1,4 +1,7 @@
 import zipfile
+
+import PyPDF2
+import docx
 import rarfile
 import py7zr
 import pytesseract
@@ -120,29 +123,61 @@ def extract_data_from_xlsx(xlsx_path):
         logging.error(f"Ошибка при извлечении текста из {xlsx_path}: {str(e)}")
         return ""
 
+
 def extract_archive(file_path, extract_to):
+    """
+    Извлекает файлы из архива в указанную директорию.
+
+    :param file_path: Путь к архивному файлу
+    :param extract_to: Директория для извлечения
+    :return: True, если извлечение прошло успешно, иначе False
+    """
     if not file_path or not extract_to:
+        logging.error("Необходимо указать расположение архива и место для разархивации.")
         messagebox.showerror("Ошибка", "Необходимо указать расположение архива и место для разархивации.")
         return False
 
-    success = False
     try:
+        # Создаём директорию для извлечения, если она не существует
+        os.makedirs(extract_to, exist_ok=True)
+
         if file_path.endswith('.zip'):
             with zipfile.ZipFile(file_path, 'r') as archive:
-                archive.extractall(extract_to)
+                archive.extractall(extract_to)  # Извлечение всех файлов из ZIP
+                logging.info(f"Архив {file_path} успешно извлечён в {extract_to}.")
+
         elif file_path.endswith('.rar'):
             with rarfile.RarFile(file_path, 'r') as archive:
-                archive.extractall(extract_to)
+                archive.extractall(extract_to)  # Извлечение всех файлов из RAR
+                logging.info(f"Архив {file_path} успешно извлечён в {extract_to}.")
+
         elif file_path.endswith('.7z'):
             with py7zr.SevenZipFile(file_path, mode='r') as archive:
-                archive.extractall(extract_to)
-        success = True
-        logging.info(f"Файл {file_path} успешно извлечен в {extract_to}")
-        messagebox.showinfo("Успех", f"Архив успешно извлечен в {extract_to}")
+                archive.extractall(extract_to)  # Извлечение всех файлов из 7z
+                logging.info(f"Архив {file_path} успешно извлечён в {extract_to}.")
+
+        else:
+            logging.error("Неподдерживаемый формат архива.")
+            messagebox.showerror("Ошибка", "Неподдерживаемый формат архива.")
+            return False
+
+        messagebox.showinfo("Успех", f"Архив успешно извлечён в {extract_to}")
+        return True
+
+    except (zipfile.BadZipFile, rarfile.Error, py7zr.Bad7zFile) as e:
+        logging.error(f"Ошибка: архив повреждён или имеет неверный формат {file_path}: {str(e)}")
+        messagebox.showerror("Ошибка", "Архив повреждён или имеет неверный формат.")
+        return False
+
+    except PermissionError:
+        logging.error(f"Ошибка: недостаточно прав для записи в {extract_to}.")
+        messagebox.showerror("Ошибка", "Недостаточно прав для записи в указанную директорию.")
+        return False
+
     except Exception as e:
         logging.error(f"Ошибка извлечения файла {file_path}: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при извлечении архива.")
-    return success
+        return False
 
 def extract_text_from_pdf(pdf_path):
     text = ""
@@ -186,6 +221,48 @@ def compare_with_reference(data, reference_path):
         logging.error(f"Ошибка при загрузке справочника {reference_path}: {str(e)}")
     return []
 
+def extract_file_metadata(file_path):
+    """
+    Извлекает метаданные о документе.
+    :param file_path: Путь к файлу
+    :return: Кортеж с наименованием, обозначением, количеством страниц и форматом
+    """
+    # Получаем имя файла и его формат
+    name = os.path.basename(file_path)
+    format = os.path.splitext(file_path)[1][1:].lower()  # Формат файла без точки
+
+    designation = "Обозначение документа"  # Заглушка, заменить на реальное значение, если доступно
+    pages = 0  # Количество страниц, инициализируем как 0
+
+    try:
+        # Обработка файлов PDF
+        if format == 'pdf':
+            with open(file_path, 'rb') as file:
+                reader = PyPDF2.PdfReader(file)
+                pages = len(reader.pages)  # Получаем количество страниц в PDF
+
+        # Обработка файлов DOCX
+        elif format == 'docx':
+            doc = docx.Document(file_path)
+            pages = len(doc.element.xpath('//w:sectPr'))  # Пример получения количества страниц
+
+        # Обработка текстовых файлов
+        elif format == 'txt':
+            with open(file_path, 'r', encoding='utf-8') as file:
+                content = file.read()
+                pages = content.count('\n') // 50 + 1  # Примерное количество страниц
+
+        # Обработка изображений (например, сканированных документов)
+        elif format in ['jpg', 'jpeg', 'png']:
+            img = Image.open(file_path)
+            text = pytesseract.image_to_string(img)  # Извлечение текста из изображения
+            pages = 1  # Для изображений, можно считать 1 страницу, если изображение одно
+
+    except Exception as e:
+        logging.error(f"Ошибка при извлечении метаданных из файла {file_path}: {str(e)}")
+
+    return name, designation, pages, format
+
 
 def create_inventory(matched_data, output_path):
     """
@@ -193,22 +270,48 @@ def create_inventory(matched_data, output_path):
     :param matched_data: Данные для внесения в опись
     :param output_path: Путь для сохранения описи
     """
+    # Создание документа Word с описью
     try:
         doc = Document()
         doc.add_heading('Опись документов', 0)
 
-        for item in matched_data:
+        for document in matched_data:
             doc.add_paragraph(
-                f"Наименование: {item[0]}\nОбозначение: {item[1]}\nКоличество листов: {item[2]}\nФормат: {item[3]}"
+                f"Наименование: {document['name']}\n"
+                f"Обозначение: {document['designation']}\n"
+                f"Количество листов: {document['pages']}\n"
+                f"Формат: {document['format']}"
             )
 
         doc.save(output_path)
         logging.info(f"Опись успешно сохранена в {output_path}")
         messagebox.showinfo("Успех", "Опись успешно создана.")
+
     except Exception as e:
         logging.error(f"Ошибка при создании описи: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при создании описи.")
+def extract_data_from_documents(directory):
+    """
+    Извлекает данные о всех файлах из указанной директории и возвращает список документов.
+    :param directory: Путь к директории с документами
+    :return: Список данных о документах
+    """
+    documents = []
 
+    # Проходим по всем файлам в директории
+    for filename in os.listdir(directory):
+        file_path = os.path.join(directory, filename)
+        if os.path.isfile(file_path):
+            # Извлекаем метаданные файла
+            name, designation, pages, format = extract_file_metadata(file_path)
+            documents.append({
+                'name': name,
+                'designation': designation,
+                'pages': pages,
+                'format': format
+            })
+
+    return documents
 def apply_number_to_file(image_path, number, output_path):
     try:
         with Image.open(image_path) as img:
@@ -318,7 +421,32 @@ class DocumentProcessorApp:
             logging.info(f"Файл с номерами выбран: {file_path}")
 
     def run_extraction(self):
-        extract_archive(self.archive_path.get(), self.output_directory.get())
+        """
+        Метод для запуска процесса извлечения архива.
+        Извлекает архив из указанного пути в заданную директорию.
+        """
+        archive_path = self.archive_path.get()  # Получаем путь к архиву
+        output_directory = self.output_directory.get()  # Получаем директорию для извлечения
+
+        if not archive_path or not output_directory:
+            messagebox.showerror("Ошибка", "Необходимо указать и архив, и директорию для извлечения.")
+            return
+
+        # Проверяем, существует ли архивный файл
+        if not os.path.isfile(archive_path):
+            messagebox.showerror("Ошибка", "Указанный архив не существует.")
+            return
+
+        # Проверяем, существует ли директория для извлечения
+        if not os.path.exists(output_directory):
+            messagebox.showerror("Ошибка", "Указанная директория для извлечения не существует.")
+            return
+
+        # Запускаем процесс извлечения
+        if extract_archive(archive_path, output_directory):
+            logging.info("Процесс извлечения завершён успешно.")
+        else:
+            logging.error("Процесс извлечения завершился с ошибкой.")
 
     def run_extract_text_and_images(self):
         """Метод для извлечения текста и изображений из файлов различных форматов."""
@@ -361,14 +489,18 @@ class DocumentProcessorApp:
         messagebox.showinfo("Успех", "Извлечение завершено.")
 
     def run_inventory(self):
-        """Метод для создания описи документов."""
-        reference_path = self.reference_path.get()
-        output_directory = self.output_directory.get()
-        extracted_data = extract_data_from_excel(reference_path)
-        matched_data = compare_with_reference(extracted_data, reference_path)
-        output_path = os.path.join(output_directory, "опись.docx")
-        create_inventory(matched_data, output_path)
 
+        """Метод для создания описи документов."""
+        directory = filedialog.askdirectory()
+        if directory:
+            self.reference_path.set(directory)
+        # Извлекаем данные о документах из указанной директории
+        extracted_data = extract_data_from_documents(directory)  # Функция для извлечения данных из файлов
+
+
+        # Создаем опись документов
+        output_path = os.path.join(directory, "опись.docx")
+        create_inventory(extracted_data, output_path)
 
     def run_apply_numbers(self):
         """Метод для нанесения номеров на файлы."""
