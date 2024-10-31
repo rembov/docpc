@@ -1,5 +1,6 @@
 import zipfile
-
+import re
+from difflib import ndiff
 import PyPDF2
 import docx
 import rarfile
@@ -15,10 +16,11 @@ import logging
 import tkinter as tk
 from tkinter import filedialog, messagebox, simpledialog
 from concurrent.futures import ThreadPoolExecutor
+
 output_directory_text_images = ""
 output_directory_numbering = ""
 # Настройка логирования
-logging.basicConfig(filename="process.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(filename="process.txt", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
 def extract_data_from_pdf(pdf_path, output_dir):
@@ -92,17 +94,22 @@ def extract_data_from_txt(txt_path):
     except Exception as e:
         logging.error(f"Ошибка при извлечении текста из {txt_path}: {str(e)}")
         return ""
+
+
 def select_output_directory_for_text_images():
     global output_directory_text_images
     output_directory_text_images = filedialog.askdirectory(title="Выберите директорию для вывода текста и изображений")
     if output_directory_text_images:
         logging.info(f"Директория для текста и изображений установлена: {output_directory_text_images}")
 
+
 def select_output_directory_for_numbering():
     global output_directory_numbering
     output_directory_numbering = filedialog.askdirectory(title="Выберите директорию для вывода с нумерацией")
     if output_directory_numbering:
         logging.info(f"Директория для нумерации установлена: {output_directory_numbering}")
+
+
 def extract_data_from_xlsx(xlsx_path):
     """
     Извлекает текст из Excel (.xlsx).
@@ -179,6 +186,7 @@ def extract_archive(file_path, extract_to):
         messagebox.showerror("Ошибка", "Ошибка при извлечении архива.")
         return False
 
+
 def extract_text_from_pdf(pdf_path):
     text = ""
     try:
@@ -194,6 +202,7 @@ def extract_text_from_pdf(pdf_path):
         logging.error(f"Ошибка извлечения текста из PDF {pdf_path}: {str(e)}")
     return text
 
+
 def extract_text_from_docx(docx_path):
     try:
         doc = Document(docx_path)
@@ -201,6 +210,7 @@ def extract_text_from_docx(docx_path):
     except Exception as e:
         logging.error(f"Ошибка извлечения текста из DOCX {docx_path}: {str(e)}")
     return ""
+
 
 def extract_data_from_excel(xlsx_path):
     try:
@@ -212,6 +222,7 @@ def extract_data_from_excel(xlsx_path):
         logging.error(f"Ошибка извлечения данных из Excel {xlsx_path}: {str(e)}")
     return []
 
+
 def compare_with_reference(data, reference_path):
     try:
         reference = pd.read_excel(reference_path)
@@ -220,6 +231,7 @@ def compare_with_reference(data, reference_path):
     except Exception as e:
         logging.error(f"Ошибка при загрузке справочника {reference_path}: {str(e)}")
     return []
+
 
 def extract_file_metadata(file_path):
     """
@@ -290,6 +302,8 @@ def create_inventory(matched_data, output_path):
     except Exception as e:
         logging.error(f"Ошибка при создании описи: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при создании описи.")
+
+
 def extract_data_from_documents(directory):
     """
     Извлекает данные о всех файлах из указанной директории и возвращает список документов.
@@ -312,6 +326,8 @@ def extract_data_from_documents(directory):
             })
 
     return documents
+
+
 def apply_number_to_file(image_path, number, output_path):
     try:
         with Image.open(image_path) as img:
@@ -323,6 +339,7 @@ def apply_number_to_file(image_path, number, output_path):
     except Exception as e:
         logging.error(f"Ошибка нанесения номера на файл: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при нанесении номера.")
+
 
 def rename_file_with_dialog():
     try:
@@ -347,6 +364,104 @@ def rename_file_with_dialog():
         logging.error(f"Ошибка при переименовании файла: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при переименовании файла.")
 
+
+def load_reference_docx(reference_path):
+    """Loads metadata from a reference .docx file (naimenovanie, designation, pages, format)."""
+    try:
+        doc = Document(reference_path)
+        reference_data = {
+            "name": doc.core_properties.title,
+            "designation": doc.core_properties.subject,
+            "pages": len(doc.paragraphs),
+            "format": "docx"
+        }
+        logging.info(f"Справочник загружен: {reference_path}")
+        return reference_data
+    except Exception as e:
+        logging.error(f"Ошибка загрузки справочника {reference_path}: {str(e)}")
+        return None
+
+
+def extract_metadata_for_comparison(file_path):
+    """Extracts metadata fields from a file for comparison (naimenovanie, designation, pages, format)."""
+    ext = file_path.split('.')[-1].lower()
+    metadata = {
+        "name": os.path.basename(file_path),
+        "designation": "Not defined",
+        "pages": 0,
+        "format": ext
+    }
+
+    try:
+        if ext == "pdf":
+            with fitz.open(file_path) as pdf:
+                metadata["pages"] = pdf.page_count
+        elif ext == "docx":
+            doc = Document(file_path)
+            metadata["designation"] = doc.core_properties.subject
+            metadata["pages"] = len(doc.paragraphs)
+        elif ext == "txt":
+            with open(file_path, "r", encoding="utf-8") as file:
+                content = file.read()
+                metadata["pages"] = content.count('\n') // 50 + 1
+        elif ext == "xlsx":
+            workbook = load_workbook(file_path, data_only=True)
+            metadata["pages"] = sum(1 for _ in workbook.sheetnames)
+    except Exception as e:
+        logging.error(f"Ошибка извлечения метаданных из файла {file_path}: {str(e)}")
+
+    return metadata
+
+
+def compare_metadata_with_reference(directory, reference_data):
+    """Compares metadata of each document in directory with the reference metadata."""
+    differences = {}
+    for filename in os.listdir(directory):
+        file_path = os.path.join(directory, filename)
+        if os.path.isfile(file_path):
+            file_metadata = extract_metadata_for_comparison(file_path)
+            diff = []
+            for key in reference_data:
+                if file_metadata.get(key) != reference_data.get(key):
+                    diff.append(
+                        f"{key.capitalize()} отличается: Справочник ({reference_data[key]}) vs Файл ({file_metadata[key]})")
+            if diff:
+                differences[filename] = "\n".join(diff)
+                logging.info(f"Отличия найдены в файле: {filename}")
+
+    if differences:
+        messagebox.showinfo("Внимание", "Найдены отличия между файлами в каталоге и справочником.")
+    else:
+        messagebox.showinfo("Информация", "Отличий не найдено.")
+
+    return differences
+
+
+def display_differences_window(differences):
+    """Displays differences with scroll functionality in a new Tkinter window."""
+    diff_window = tk.Toplevel()
+    diff_window.title("Отличия справочника и документов")
+
+    # Создаем текстовое поле с прокруткой
+    scrollbar = tk.Scrollbar(diff_window)
+    text_widget = tk.Text(diff_window, wrap="word", yscrollcommand=scrollbar.set, width=80, height=20)
+    scrollbar.config(command=text_widget.yview)
+
+    for filename, diff_text in differences.items():
+        text_widget.insert("end", f"Файл: {filename}\n{diff_text}\n\n")
+
+    text_widget.pack(side="left", fill="both", expand=True)
+    scrollbar.pack(side="right", fill="y")
+
+
+def check_and_rename_files(directory):
+    """Checks and renames files in directory to match a specific naming pattern."""
+    pattern = re.compile(r"^[A-Za-z0-9_-]+$")
+    for filename in os.listdir(directory):
+        if not pattern.match(filename):
+            new_filename = re.sub(r'\W+', '_', filename)  # Replaces invalid characters with '_'
+            os.rename(os.path.join(directory, filename), os.path.join(directory, new_filename))
+            logging.info(f"Файл переименован: {filename} -> {new_filename}")
 
 class DocumentProcessorApp:
     def __init__(self, root):
@@ -389,6 +504,36 @@ class DocumentProcessorApp:
         tk.Button(root, text="Сформировать опись", command=self.run_inventory).grid(row=6, column=0, pady=10)
         tk.Button(root, text="Нанести номера", command=self.run_apply_numbers).grid(row=6, column=1, pady=10)
         tk.Button(root, text="Переименовать файлы", command=self.run_rename_files).grid(row=6, column=2, pady=10)
+        tk.Button(root, text="Сравнить со справочником", command=self.run_compare_with_reference).grid(row=7, column=1,
+                                                                                                       pady=10)
+
+    def run_compare_with_reference(self):
+        """Runs document metadata comparison with reference and displays differences."""
+        reference_path = self.reference_path.get()
+        files_directory = self.files_directory.get()
+
+        if not reference_path or not files_directory:
+            messagebox.showerror("Ошибка", "Необходимо выбрать справочник и директорию с файлами для сравнения.")
+            return
+
+        reference_data = load_reference_docx(reference_path)
+        if reference_data:
+            differences = compare_metadata_with_reference(files_directory, reference_data)
+            if differences:
+                display_differences_window(differences)
+            else:
+                messagebox.showinfo("Информация", "Отличий не найдено.")
+        else:
+            messagebox.showerror("Ошибка", "Не удалось загрузить справочник для сравнения.")
+
+    def run_rename_files(self):
+        """Runs file renaming for standardization in the specified directory."""
+        directory = self.files_directory.get()
+        if directory:
+            check_and_rename_files(directory)
+            messagebox.showinfo("Успех", "Проверка и переименование файлов завершено.")
+        else:
+            messagebox.showerror("Ошибка", "Необходимо выбрать директорию с файлами для переименования.")
 
     def select_archive(self):
         file_path = filedialog.askopenfilename(filetypes=[("Archive files", "*.zip *.rar *.7z")])
@@ -402,8 +547,9 @@ class DocumentProcessorApp:
         if directory:
             self.files_directory.set(directory)
             logging.info(f"Директория с файлами выбрана: {directory}")
+
     def select_reference(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
+        file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.docx")])
         if file_path:
             self.reference_path.set(file_path)
             logging.info(f"Справочник выбран: {file_path}")
@@ -497,7 +643,6 @@ class DocumentProcessorApp:
         # Извлекаем данные о документах из указанной директории
         extracted_data = extract_data_from_documents(directory)  # Функция для извлечения данных из файлов
 
-
         # Создаем опись документов
         output_path = os.path.join(directory, "опись.docx")
         create_inventory(extracted_data, output_path)
@@ -517,6 +662,7 @@ class DocumentProcessorApp:
 
     def run_rename_files(self):
         rename_file_with_dialog()
+
 
 if __name__ == "__main__":
     root = tk.Tk()
