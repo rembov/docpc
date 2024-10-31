@@ -1,0 +1,9 @@
+zipfile36  # если zipfile встроен, можно убрать эту строчку
+rarfile
+py7zr
+pytesseract
+pymupdf  # также известен как PyMuPDF
+pandas
+python-docx
+openpyxl
+tk  # обычно встроен в Python, указано на случай недостающей установки
