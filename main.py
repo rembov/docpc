@@ -364,9 +364,8 @@ def rename_file_with_dialog():
         logging.error(f"Ошибка при переименовании файла: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при переименовании файла.")
 
-
 def load_reference_docx(reference_path):
-    """Loads metadata from a reference .docx file (naimenovanie, designation, pages, format)."""
+    """Загружает метаданные из справочного .docx файла (наименование, обозначение, страницы, формат)."""
     try:
         doc = Document(reference_path)
         reference_data = {
@@ -383,11 +382,11 @@ def load_reference_docx(reference_path):
 
 
 def extract_metadata_for_comparison(file_path):
-    """Extracts metadata fields from a file for comparison (naimenovanie, designation, pages, format)."""
+    """Извлекает метаданные из файла для сравнения (наименование, обозначение, страницы, формат)."""
     ext = file_path.split('.')[-1].lower()
     metadata = {
         "name": os.path.basename(file_path),
-        "designation": "Not defined",
+        "designation": "Не определено",
         "pages": 0,
         "format": ext
     }
@@ -414,8 +413,10 @@ def extract_metadata_for_comparison(file_path):
 
 
 def compare_metadata_with_reference(directory, reference_data):
-    """Compares metadata of each document in directory with the reference metadata."""
+    """Сравнивает метаданные каждого документа в каталоге с метаданными справочника."""
     differences = {}
+    reference_name = reference_data['name']
+
     for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
         if os.path.isfile(file_path):
@@ -424,25 +425,21 @@ def compare_metadata_with_reference(directory, reference_data):
             for key in reference_data:
                 if file_metadata.get(key) != reference_data.get(key):
                     diff.append(
-                        f"{key.capitalize()} отличается: Справочник ({reference_data[key]}) vs Файл ({file_metadata[key]})")
+                        f"{key.capitalize()} отличается: Справочник ({reference_data[key]}) vs Файл ({file_metadata[key]})"
+                    )
+
             if diff:
                 differences[filename] = "\n".join(diff)
                 logging.info(f"Отличия найдены в файле: {filename}")
-
-    if differences:
-        messagebox.showinfo("Внимание", "Найдены отличия между файлами в каталоге и справочником.")
-    else:
-        messagebox.showinfo("Информация", "Отличий не найдено.")
 
     return differences
 
 
 def display_differences_window(differences):
-    """Displays differences with scroll functionality in a new Tkinter window."""
+    """Отображает отличия в новом окне Tkinter."""
     diff_window = tk.Toplevel()
     diff_window.title("Отличия справочника и документов")
 
-    # Создаем текстовое поле с прокруткой
     scrollbar = tk.Scrollbar(diff_window)
     text_widget = tk.Text(diff_window, wrap="word", yscrollcommand=scrollbar.set, width=80, height=20)
     scrollbar.config(command=text_widget.yview)
@@ -455,11 +452,11 @@ def display_differences_window(differences):
 
 
 def check_and_rename_files(directory):
-    """Checks and renames files in directory to match a specific naming pattern."""
+    """Проверяет и переименовывает файлы в каталоге, чтобы соответствовать определённому шаблону именования."""
     pattern = re.compile(r"^[A-Za-z0-9_-]+$")
     for filename in os.listdir(directory):
         if not pattern.match(filename):
-            new_filename = re.sub(r'\W+', '_', filename)  # Replaces invalid characters with '_'
+            new_filename = re.sub(r'\W+', '_', filename)
             os.rename(os.path.join(directory, filename), os.path.join(directory, new_filename))
             logging.info(f"Файл переименован: {filename} -> {new_filename}")
 
@@ -508,7 +505,7 @@ class DocumentProcessorApp:
                                                                                                        pady=10)
 
     def run_compare_with_reference(self):
-        """Runs document metadata comparison with reference and displays differences."""
+        """Запускает сравнение метаданных с справочником и выводит отличия."""
         reference_path = self.reference_path.get()
         files_directory = self.files_directory.get()
 
@@ -522,19 +519,18 @@ class DocumentProcessorApp:
             if differences:
                 display_differences_window(differences)
             else:
-                messagebox.showinfo("Информация", "Отличий не найдено.")
+                messagebox.showinfo("Информация", "Отличий нет во всех разделах метаданных.")
         else:
             messagebox.showerror("Ошибка", "Не удалось загрузить справочник для сравнения.")
 
     def run_rename_files(self):
-        """Runs file renaming for standardization in the specified directory."""
+        """Запускает проверку и переименование файлов в указанной директории."""
         directory = self.files_directory.get()
         if directory:
             check_and_rename_files(directory)
             messagebox.showinfo("Успех", "Проверка и переименование файлов завершено.")
         else:
             messagebox.showerror("Ошибка", "Необходимо выбрать директорию с файлами для переименования.")
-
     def select_archive(self):
         file_path = filedialog.askopenfilename(filetypes=[("Archive files", "*.zip *.rar *.7z")])
         if file_path:
