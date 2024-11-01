@@ -328,17 +328,44 @@ def extract_data_from_documents(directory):
     return documents
 
 
-def apply_number_to_file(image_path, number, output_path):
+def apply_number_to_file(file_path, number, output_path):
+    ext = file_path.split('.')[-1].lower()
+
     try:
-        with Image.open(image_path) as img:
-            draw = ImageDraw.Draw(img)
-            draw.text((10, 10), str(number), fill="black")
-            img.save(output_path)
-            logging.info(f"Файл {image_path} сохранен с номером {number} в {output_path}")
-            messagebox.showinfo("Успех", "Файл успешно обновлен с номером.")
+        # Нанесение номера на .docx
+        if ext == "docx":
+            doc = Document(file_path)
+            doc.add_paragraph(f"Номер: {number}")  # Добавляем номер в начале документа
+            doc.save(output_path)
+
+        # Нанесение номера на .pdf
+        elif ext == "pdf":
+            doc = fitz.open(file_path)
+            first_page = doc[0]
+            first_page.insert_text((10, 10), f"Номер: {number}", fontsize=12)  # Позиция и размер шрифта
+            doc.save(output_path)
+            doc.close()
+
+        # Нанесение номера на .txt
+        elif ext == "txt":
+            with open(file_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            with open(output_path, "w", encoding="utf-8") as f:
+                f.write(f"Номер: {number}\n{content}")
+
+        # Нанесение номера на .xlsx
+        elif ext == "xlsx":
+            workbook = load_workbook(file_path)
+            sheet = workbook.active
+            sheet["A1"] = f"Номер: {number}"  # Вставляем номер в первую ячейку
+            workbook.save(output_path)
+
+        logging.info(f"Номер {number} успешно нанесен на файл {file_path} и сохранен как {output_path}")
+        messagebox.showinfo("Успех", f"Номер успешно нанесен на файл: {file_path}")
+
     except Exception as e:
-        logging.error(f"Ошибка нанесения номера на файл: {str(e)}")
-        messagebox.showerror("Ошибка", "Ошибка при нанесении номера.")
+        logging.error(f"Ошибка нанесения номера на файл {file_path}: {str(e)}")
+        messagebox.showerror("Ошибка", f"Ошибка при нанесении номера на файл: {file_path}")
 
 
 def rename_file_with_dialog():
@@ -364,25 +391,33 @@ def rename_file_with_dialog():
         logging.error(f"Ошибка при переименовании файла: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при переименовании файла.")
 
+
 def load_reference_docx(reference_path):
-    """Загружает метаданные из справочного .docx файла (наименование, обозначение, страницы, формат)."""
+    """
+    Загружает метаданные из справочного .docx файла (наименование, обозначение, страницы, формат).
+    :param reference_path: Путь к файлу справочника
+    :return: Словарь с данными из справочника
+    """
     try:
         doc = Document(reference_path)
         reference_data = {
-            "name": doc.core_properties.title,
-            "designation": doc.core_properties.subject,
+            "name": doc.core_properties.title or "Не указано",
+            "designation": doc.core_properties.subject or "Не указано",
             "pages": len(doc.paragraphs),
             "format": "docx"
         }
-        logging.info(f"Справочник загружен: {reference_path}")
+        print(f"Справочник загружен: {reference_path} с данными: {reference_data}")
         return reference_data
     except Exception as e:
-        logging.error(f"Ошибка загрузки справочника {reference_path}: {str(e)}")
+        print(f"Ошибка загрузки справочника {reference_path}: {str(e)}")
         return None
 
-
 def extract_metadata_for_comparison(file_path):
-    """Извлекает метаданные из файла для сравнения (наименование, обозначение, страницы, формат)."""
+    """
+    Извлекает метаданные из файла для сравнения (наименование, обозначение, страницы, формат).
+    :param file_path: Путь к файлу
+    :return: Словарь с метаданными файла
+    """
     ext = file_path.split('.')[-1].lower()
     metadata = {
         "name": os.path.basename(file_path),
@@ -392,51 +427,74 @@ def extract_metadata_for_comparison(file_path):
     }
 
     try:
+        # Обработка PDF
         if ext == "pdf":
             with fitz.open(file_path) as pdf:
                 metadata["pages"] = pdf.page_count
+
+        # Обработка DOCX
         elif ext == "docx":
             doc = Document(file_path)
-            metadata["designation"] = doc.core_properties.subject
+            metadata["designation"] = doc.core_properties.subject or "Не определено"
             metadata["pages"] = len(doc.paragraphs)
+
+        # Обработка TXT
         elif ext == "txt":
             with open(file_path, "r", encoding="utf-8") as file:
                 content = file.read()
                 metadata["pages"] = content.count('\n') // 50 + 1
+
+        # Обработка XLSX
         elif ext == "xlsx":
             workbook = load_workbook(file_path, data_only=True)
             metadata["pages"] = sum(1 for _ in workbook.sheetnames)
+
+        print(f"Метаданные для файла {file_path}: {metadata}")
     except Exception as e:
-        logging.error(f"Ошибка извлечения метаданных из файла {file_path}: {str(e)}")
+        print(f"Ошибка извлечения метаданных из файла {file_path}: {str(e)}")
 
     return metadata
 
-
 def compare_metadata_with_reference(directory, reference_data):
-    """Сравнивает метаданные каждого документа в каталоге с метаданными справочника."""
+    """
+    Сравнивает метаданные каждого документа в каталоге с метаданными справочника,
+    пропуская сравнение для критериев, у которых значение "Не определено" или None.
+    :param directory: Путь к каталогу с документами
+    :param reference_data: Словарь с эталонными данными для сравнения
+    :return: Словарь с обнаруженными отличиями
+    """
     differences = {}
-    reference_name = reference_data['name']
+
+    print(f"Метаданные справочника для сравнения: {reference_data}")
 
     for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
         if os.path.isfile(file_path):
             file_metadata = extract_metadata_for_comparison(file_path)
             diff = []
-            for key in reference_data:
-                if file_metadata.get(key) != reference_data.get(key):
+            for key, ref_value in reference_data.items():
+                # Пропускаем критерии, у которых значение "Не определено" или None
+                if ref_value in ["Не определено", None]:
+                    continue
+
+                file_value = file_metadata.get(key)
+                if file_value != ref_value:
                     diff.append(
-                        f"{key.capitalize()} отличается: Справочник ({reference_data[key]}) vs Файл ({file_metadata[key]})"
+                        f"{key.capitalize()} отличается: Справочник ({ref_value}) vs Файл ({file_value})"
                     )
 
             if diff:
                 differences[filename] = "\n".join(diff)
-                logging.info(f"Отличия найдены в файле: {filename}")
+                print(f"Отличия найдены в файле {filename}: {diff}")
 
     return differences
 
 
 def display_differences_window(differences):
-    """Отображает отличия в новом окне Tkinter."""
+    """
+    Отображает отличия в новом окне Tkinter, исключая критерии, где значение не определено.
+    :param differences: Словарь с обнаруженными отличиями
+    """
     diff_window = tk.Toplevel()
     diff_window.title("Отличия справочника и документов")
 
@@ -445,10 +503,19 @@ def display_differences_window(differences):
     scrollbar.config(command=text_widget.yview)
 
     for filename, diff_text in differences.items():
-        text_widget.insert("end", f"Файл: {filename}\n{diff_text}\n\n")
+        # Фильтрация отличий, исключая те, где эталонное значение "Не определено" или None
+        filtered_diff = "\n".join(
+            line for line in diff_text.split("\n")
+            if not ("Справочник (Не указано)" in line or "Справочник (None)" in line)
+        )
+
+        # Добавляем в вывод только если есть отфильтрованные отличия
+        if filtered_diff:
+            text_widget.insert("end", f"Файл: {filename}\n{filtered_diff}\n\n")
 
     text_widget.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
+
 
 
 def check_and_rename_files(directory):
@@ -522,7 +589,6 @@ class DocumentProcessorApp:
                 messagebox.showinfo("Информация", "Отличий нет во всех разделах метаданных.")
         else:
             messagebox.showerror("Ошибка", "Не удалось загрузить справочник для сравнения.")
-
     def run_rename_files(self):
         """Запускает проверку и переименование файлов в указанной директории."""
         directory = self.files_directory.get()
@@ -644,17 +710,26 @@ class DocumentProcessorApp:
         create_inventory(extracted_data, output_path)
 
     def run_apply_numbers(self):
-        """Метод для нанесения номеров на файлы."""
-        numbers_path = self.numbers_path.get()
+        """Метод для автоматического нанесения номеров на файлы в указанной директории."""
         directory = self.files_directory.get()
-        numbers_data = extract_data_from_excel(numbers_path)
 
-        for number_info in numbers_data:
-            file_name = number_info[0]  # Assuming file name is in the first column
-            number = number_info[1]  # Assuming number is in the second column
+        # Проверка на наличие директории
+        if not directory:
+            messagebox.showerror("Ошибка", "Необходимо выбрать директорию с файлами для нумерации.")
+            return
+
+        # Список всех файлов в директории
+        files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+
+        # Пронумеровываем файлы
+        for index, file_name in enumerate(files, start=1):
             file_path = os.path.join(directory, file_name)
             output_path = os.path.join(directory, f"numbered_{file_name}")
-            apply_number_to_file(file_path, number, output_path)
+
+            # Наносим текущий номер (index) на файл
+            apply_number_to_file(file_path, index, output_path)
+
+        messagebox.showinfo("Успех", "Номера успешно нанесены на файлы.")
 
     def run_rename_files(self):
         rename_file_with_dialog()
