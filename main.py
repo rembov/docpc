@@ -398,35 +398,24 @@ def rename_file_with_dialog():
 
 
 def load_reference_docx(reference_path):
-    """
-    Загружает метаданные из справочного .docx файла (наименование, обозначение, страницы, формат).
-    :param reference_path: Путь к файлу справочника
-    :return: Словарь с данными из справочника
-    """
+    document = Document(reference_path)
 
-    try:
-        doc = Document(reference_path)
+    # Определяем ключи для поиска
+    keys = ["Наименование:", "Обозначение:", "Количество листов:", "Формат:"]
+    reference_data = {key: None for key in keys}
 
-        # Попытка извлечь наименование и обозначение из свойств документа
-        name = doc.core_properties.title or "Не указано"
-        designation = doc.core_properties.subject or "Не указано"
+    # Проходим по всем параграфам в документе
+    for para in document.paragraphs:
+        text = para.text.strip()
+        for key in keys:
+            if text.startswith(key):
+                # Извлекаем значение после ключа
+                reference_data[key] = text[len(key):].strip()
+                break  # Прерываем поиск для текущего параграфа, если нашли ключ
 
-        # Если наименование или обозначение не указаны, попытаемся извлечь их из содержания
+    return reference_data
 
-        # Получение формата файла на основе его расширения
-        file_format = reference_path.split('.')[-1].lower()
 
-        reference_data = {
-            "Наименование:": name,
-            "Обозначение:": designation,
-            "Количество листов:": len(doc.paragraphs),
-            "Формат:": file_format
-        }
-        print(f"Справочник загружен: {reference_path} с данными: {reference_data}")
-        return reference_data
-    except Exception as e:
-        print(f"Ошибка загрузки справочника {reference_path}: {str(e)}")
-        return None
 
 def extract_metadata_for_comparison(file_path):
     """
@@ -477,7 +466,7 @@ def compare_metadata_with_reference(directory, reference_data):
     пропуская сравнение для критериев, у которых значение "Не определено" или None.
     :param directory: Путь к каталогу с документами
     :param reference_data: Словарь с эталонными данными для сравнения
-    :return: Словарь с обнаруженными отличиями
+    :return: Словарь с обнаруженными отличиями или сообщением о совпадении
     """
     differences = {}
 
@@ -496,14 +485,18 @@ def compare_metadata_with_reference(directory, reference_data):
                 file_value = file_metadata.get(key)
                 if file_value != ref_value:
                     diff.append(
-                        f"{key.capitalize()} отличается: Справочник ({ref_value}) vs Файл ({file_value})"
+                        f"{key.capitalize()} отличается Справочник {ref_value} vs Файл {file_value}"
                     )
 
             if diff:
                 differences[filename] = "\n".join(diff)
                 print(f"Отличия найдены в файле {filename}: {diff}")
+            else:
+                differences[filename] = "Файл соответствует справочным данным."
+                print(f"Файл {filename} полностью соответствует справочнику.")
 
     return differences
+
 
 
 def display_differences_window(differences):
@@ -519,7 +512,7 @@ def display_differences_window(differences):
     scrollbar.config(command=text_widget.yview)
 
     for filename, diff_text in differences.items():
-        # Фильтрация отличий, исключая те, где эталонное значение "Не определено" или None
+        # Фильтрация отличий, исключая те, где эталонное значение "Не указано" или None
         filtered_diff = "\n".join(
             line for line in diff_text.split("\n")
             if not ("Справочник (Не указано)" in line or "Справочник (None)" in line)
