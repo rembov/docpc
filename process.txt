@@ -270,3 +270,127 @@
 2024-11-01 13:11:23,245 - INFO - Номер 9 успешно нанесен на файл C:/Users/user/Desktop/123\Новый текстовый документ.txt и сохранен как C:/Users/user/Desktop/123\numbered_Новый текстовый документ.txt
 2024-11-01 13:11:24,269 - INFO - Номер 10 успешно нанесен на файл C:/Users/user/Desktop/123\опись.docx и сохранен как C:/Users/user/Desktop/123\numbered_опись.docx
 2024-11-01 13:11:25,042 - INFO - Номер 11 успешно нанесен на файл C:/Users/user/Desktop/123\э3 (2).docx и сохранен как C:/Users/user/Desktop/123\numbered_э3 (2).docx
+2024-11-01 14:02:55,376 - INFO - Архивы выбраны: ('C:/Users/user/Desktop/123.zip',)
+2024-11-01 14:03:51,188 - INFO - Архивы выбраны: ('C:/Users/user/Desktop/123.zip',)
+2024-11-01 14:04:00,235 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:04:36,610 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:04:37,572 - INFO - Номер 1 успешно нанесен на файл C:/Users/user/Desktop/123\1.txt и сохранен как C:/Users/user/Desktop/123\numbered_1.txt
+2024-11-01 14:04:40,272 - INFO - Номер 2 успешно нанесен на файл C:/Users/user/Desktop/123\15_6_1 8-13.pdf и сохранен как C:/Users/user/Desktop/123\numbered_15_6_1 8-13.pdf
+2024-11-01 14:04:41,776 - INFO - Номер 3 успешно нанесен на файл C:/Users/user/Desktop/123\2.txt и сохранен как C:/Users/user/Desktop/123\numbered_2.txt
+2024-11-01 14:04:42,459 - INFO - Номер 4 успешно нанесен на файл C:/Users/user/Desktop/123\3.txt и сохранен как C:/Users/user/Desktop/123\numbered_3.txt
+2024-11-01 14:04:42,967 - INFO - Номер 5 успешно нанесен на файл C:/Users/user/Desktop/123\435.xlsx и сохранен как C:/Users/user/Desktop/123\numbered_435.xlsx
+2024-11-01 14:04:43,392 - INFO - Номер 6 успешно нанесен на файл C:/Users/user/Desktop/123\5787.docx и сохранен как C:/Users/user/Desktop/123\numbered_5787.docx
+2024-11-01 14:04:43,777 - INFO - Номер 7 успешно нанесен на файл C:/Users/user/Desktop/123\extracted_data.txt и сохранен как C:/Users/user/Desktop/123\numbered_extracted_data.txt
+2024-11-01 14:04:44,226 - INFO - Номер 8 успешно нанесен на файл C:/Users/user/Desktop/123\inventory.docx и сохранен как C:/Users/user/Desktop/123\numbered_inventory.docx
+2024-11-01 14:04:44,679 - INFO - Номер 9 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_1.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_1.txt
+2024-11-01 14:04:45,321 - INFO - Номер 10 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_15_6_1 8-13.pdf и сохранен как C:/Users/user/Desktop/123\numbered_numbered_15_6_1 8-13.pdf
+2024-11-01 14:04:46,113 - INFO - Номер 11 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_2.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_2.txt
+2024-11-01 14:04:46,730 - INFO - Номер 12 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_3.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_3.txt
+2024-11-01 14:04:47,227 - INFO - Номер 13 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_435.xlsx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_435.xlsx
+2024-11-01 14:04:47,687 - INFO - Номер 14 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_5787.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_5787.docx
+2024-11-01 14:04:48,160 - INFO - Номер 15 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_extracted_data.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_extracted_data.txt
+2024-11-01 14:04:48,653 - INFO - Номер 16 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_inventory.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_inventory.docx
+2024-11-01 14:04:49,088 - INFO - Номер 17 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_Новый текстовый документ.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_Новый текстовый документ.txt
+2024-11-01 14:04:49,606 - INFO - Номер 18 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_опись.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_опись.docx
+2024-11-01 14:04:50,191 - INFO - Номер 19 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_э3 (2).docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_э3 (2).docx
+2024-11-01 14:04:50,710 - INFO - Номер 20 успешно нанесен на файл C:/Users/user/Desktop/123\Новый текстовый документ.txt и сохранен как C:/Users/user/Desktop/123\numbered_Новый текстовый документ.txt
+2024-11-01 14:04:51,338 - INFO - Номер 21 успешно нанесен на файл C:/Users/user/Desktop/123\опись.docx и сохранен как C:/Users/user/Desktop/123\numbered_опись.docx
+2024-11-01 14:04:51,955 - INFO - Номер 22 успешно нанесен на файл C:/Users/user/Desktop/123\э3 (2).docx и сохранен как C:/Users/user/Desktop/123\numbered_э3 (2).docx
+2024-11-01 14:06:07,064 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:06:07,888 - INFO - Номер 1 успешно нанесен на файл C:/Users/user/Desktop/123\1.txt и сохранен как C:/Users/user/Desktop/123\numbered_1.txt
+2024-11-01 14:06:08,028 - INFO - Номер 2 успешно нанесен на файл C:/Users/user/Desktop/123\15_6_1 8-13.pdf и сохранен как C:/Users/user/Desktop/123\numbered_15_6_1 8-13.pdf
+2024-11-01 14:06:08,029 - INFO - Номер 3 успешно нанесен на файл C:/Users/user/Desktop/123\2.txt и сохранен как C:/Users/user/Desktop/123\numbered_2.txt
+2024-11-01 14:06:08,030 - INFO - Номер 4 успешно нанесен на файл C:/Users/user/Desktop/123\3.txt и сохранен как C:/Users/user/Desktop/123\numbered_3.txt
+2024-11-01 14:06:08,054 - INFO - Номер 5 успешно нанесен на файл C:/Users/user/Desktop/123\435.xlsx и сохранен как C:/Users/user/Desktop/123\numbered_435.xlsx
+2024-11-01 14:06:08,064 - INFO - Номер 6 успешно нанесен на файл C:/Users/user/Desktop/123\5787.docx и сохранен как C:/Users/user/Desktop/123\numbered_5787.docx
+2024-11-01 14:06:08,067 - INFO - Номер 7 успешно нанесен на файл C:/Users/user/Desktop/123\extracted_data.txt и сохранен как C:/Users/user/Desktop/123\numbered_extracted_data.txt
+2024-11-01 14:06:08,111 - INFO - Номер 8 успешно нанесен на файл C:/Users/user/Desktop/123\inventory.docx и сохранен как C:/Users/user/Desktop/123\numbered_inventory.docx
+2024-11-01 14:06:08,114 - INFO - Номер 9 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_1.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_1.txt
+2024-11-01 14:06:08,327 - INFO - Номер 10 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_15_6_1 8-13.pdf и сохранен как C:/Users/user/Desktop/123\numbered_numbered_15_6_1 8-13.pdf
+2024-11-01 14:06:08,331 - INFO - Номер 11 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_2.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_2.txt
+2024-11-01 14:06:08,334 - INFO - Номер 12 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_3.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_3.txt
+2024-11-01 14:06:08,370 - INFO - Номер 13 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_435.xlsx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_435.xlsx
+2024-11-01 14:06:08,395 - INFO - Номер 14 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_5787.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_5787.docx
+2024-11-01 14:06:08,408 - INFO - Номер 15 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_extracted_data.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_extracted_data.txt
+2024-11-01 14:06:08,466 - INFO - Номер 16 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_inventory.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_inventory.docx
+2024-11-01 14:06:08,477 - INFO - Номер 17 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_1.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_1.txt
+2024-11-01 14:06:08,698 - INFO - Номер 18 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_15_6_1 8-13.pdf и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_15_6_1 8-13.pdf
+2024-11-01 14:06:08,701 - INFO - Номер 19 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_2.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_2.txt
+2024-11-01 14:06:08,704 - INFO - Номер 20 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_3.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_3.txt
+2024-11-01 14:06:08,748 - INFO - Номер 21 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_435.xlsx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_435.xlsx
+2024-11-01 14:06:08,767 - INFO - Номер 22 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_5787.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_5787.docx
+2024-11-01 14:06:08,779 - INFO - Номер 23 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_extracted_data.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_extracted_data.txt
+2024-11-01 14:06:08,829 - INFO - Номер 24 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_inventory.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_inventory.docx
+2024-11-01 14:06:08,832 - INFO - Номер 25 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_Новый текстовый документ.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_Новый текстовый документ.txt
+2024-11-01 14:06:08,879 - INFO - Номер 26 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_опись.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_опись.docx
+2024-11-01 14:06:08,992 - INFO - Номер 27 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_numbered_э3 (2).docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_numbered_э3 (2).docx
+2024-11-01 14:06:09,001 - INFO - Номер 28 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_Новый текстовый документ.txt и сохранен как C:/Users/user/Desktop/123\numbered_numbered_Новый текстовый документ.txt
+2024-11-01 14:06:09,062 - INFO - Номер 29 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_опись.docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_опись.docx
+2024-11-01 14:06:09,179 - INFO - Номер 30 успешно нанесен на файл C:/Users/user/Desktop/123\numbered_э3 (2).docx и сохранен как C:/Users/user/Desktop/123\numbered_numbered_э3 (2).docx
+2024-11-01 14:06:09,180 - INFO - Номер 31 успешно нанесен на файл C:/Users/user/Desktop/123\Новый текстовый документ.txt и сохранен как C:/Users/user/Desktop/123\numbered_Новый текстовый документ.txt
+2024-11-01 14:06:09,223 - INFO - Номер 32 успешно нанесен на файл C:/Users/user/Desktop/123\опись.docx и сохранен как C:/Users/user/Desktop/123\numbered_опись.docx
+2024-11-01 14:06:09,311 - INFO - Номер 33 успешно нанесен на файл C:/Users/user/Desktop/123\э3 (2).docx и сохранен как C:/Users/user/Desktop/123\numbered_э3 (2).docx
+2024-11-01 14:07:53,563 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/123\опись.docx
+2024-11-01 14:08:19,735 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:08:31,721 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:08:55,003 - INFO - Файл C:/Users/user/Desktop/123/Новый текстовый документ.txt переименован и сохранен как C:/Users/user/Desktop/123\ccccccc.txt
+2024-11-01 14:09:08,165 - INFO - Номер 1 успешно нанесен на файл C:/Users/user/Desktop/123\1.txt и сохранен как C:/Users/user/Desktop/123\numbered_1.txt
+2024-11-01 14:09:08,311 - INFO - Номер 2 успешно нанесен на файл C:/Users/user/Desktop/123\15_6_1 8-13.pdf и сохранен как C:/Users/user/Desktop/123\numbered_15_6_1 8-13.pdf
+2024-11-01 14:09:08,313 - INFO - Номер 3 успешно нанесен на файл C:/Users/user/Desktop/123\2.txt и сохранен как C:/Users/user/Desktop/123\numbered_2.txt
+2024-11-01 14:09:08,314 - INFO - Номер 4 успешно нанесен на файл C:/Users/user/Desktop/123\3.txt и сохранен как C:/Users/user/Desktop/123\numbered_3.txt
+2024-11-01 14:09:08,343 - INFO - Номер 5 успешно нанесен на файл C:/Users/user/Desktop/123\435.xlsx и сохранен как C:/Users/user/Desktop/123\numbered_435.xlsx
+2024-11-01 14:09:08,353 - INFO - Номер 6 успешно нанесен на файл C:/Users/user/Desktop/123\5787.docx и сохранен как C:/Users/user/Desktop/123\numbered_5787.docx
+2024-11-01 14:09:08,355 - INFO - Номер 7 успешно нанесен на файл C:/Users/user/Desktop/123\ccccccc.txt и сохранен как C:/Users/user/Desktop/123\numbered_ccccccc.txt
+2024-11-01 14:09:08,358 - INFO - Номер 8 успешно нанесен на файл C:/Users/user/Desktop/123\extracted_data.txt и сохранен как C:/Users/user/Desktop/123\numbered_extracted_data.txt
+2024-11-01 14:09:08,405 - INFO - Номер 9 успешно нанесен на файл C:/Users/user/Desktop/123\inventory.docx и сохранен как C:/Users/user/Desktop/123\numbered_inventory.docx
+2024-11-01 14:09:08,449 - INFO - Номер 10 успешно нанесен на файл C:/Users/user/Desktop/123\опись.docx и сохранен как C:/Users/user/Desktop/123\numbered_опись.docx
+2024-11-01 14:09:08,548 - INFO - Номер 11 успешно нанесен на файл C:/Users/user/Desktop/123\э3 (2).docx и сохранен как C:/Users/user/Desktop/123\numbered_э3 (2).docx
+2024-11-01 14:14:53,798 - INFO - Архивы выбраны: ('C:/Users/user/Desktop/123.rar', 'C:/Users/user/Desktop/123.zip')
+2024-11-01 14:15:15,564 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/вввв
+2024-11-01 14:15:24,923 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/вввв
+2024-11-01 14:15:25,808 - ERROR - Ошибка: архив повреждён или имеет неверный формат C:/Users/user/Desktop/123.rar: Cannot find working tool
+2024-11-01 14:15:27,487 - ERROR - Процесс извлечения для C:/Users/user/Desktop/123.rar завершился с ошибкой.
+2024-11-01 14:15:27,709 - INFO - Архив C:/Users/user/Desktop/123.zip успешно извлечён в C:/Users/user/Desktop/вввв.
+2024-11-01 14:15:30,128 - INFO - Процесс извлечения для C:/Users/user/Desktop/123.zip завершён успешно.
+2024-11-01 14:16:58,798 - INFO - Архивы выбраны: ('C:/Users/user/Desktop/123.rar', 'C:/Users/user/Desktop/123.zip')
+2024-11-01 14:17:10,986 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/вввв
+2024-11-01 14:17:11,701 - ERROR - Ошибка при извлечении RAR-архива C:/Users/user/Desktop/123.rar: Cannot find working tool
+2024-11-01 14:17:15,072 - ERROR - Процесс извлечения для C:/Users/user/Desktop/123.rar завершился с ошибкой.
+2024-11-01 14:17:15,297 - INFO - Архив C:/Users/user/Desktop/123.zip успешно извлечён в C:/Users/user/Desktop/вввв.
+2024-11-01 14:17:15,938 - INFO - Процесс извлечения для C:/Users/user/Desktop/123.zip завершён успешно.
+2024-11-01 14:18:18,845 - INFO - Архивы выбраны: ('C:/Users/user/Desktop/3.rar', 'C:/Users/user/Desktop/123.zip')
+2024-11-01 14:18:30,017 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/вввв
+2024-11-01 14:18:31,066 - INFO - Архив C:/Users/user/Desktop/3.rar успешно извлечён в C:/Users/user/Desktop/вввв.
+2024-11-01 14:18:32,476 - INFO - Процесс извлечения для C:/Users/user/Desktop/3.rar завершён успешно.
+2024-11-01 14:18:32,685 - INFO - Архив C:/Users/user/Desktop/123.zip успешно извлечён в C:/Users/user/Desktop/вввв.
+2024-11-01 14:18:33,161 - INFO - Процесс извлечения для C:/Users/user/Desktop/123.zip завершён успешно.
+2024-11-01 14:19:08,897 - ERROR - Ошибка при извлечении RAR-архива C:/Users/user/Desktop/3.rar: Cannot find working tool
+2024-11-01 14:19:10,757 - ERROR - Процесс извлечения для C:/Users/user/Desktop/3.rar завершился с ошибкой.
+2024-11-01 14:19:10,969 - INFO - Архив C:/Users/user/Desktop/123.zip успешно извлечён в C:/Users/user/Desktop/вввв.
+2024-11-01 14:19:11,638 - INFO - Процесс извлечения для C:/Users/user/Desktop/123.zip завершён успешно.
+2024-11-01 14:21:21,164 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/вввв\опись.docx
+2024-11-01 14:21:26,346 - INFO - Справочник выбран: C:/Users/user/Desktop/вввв/опись.docx
+2024-11-01 14:21:31,829 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/вввв
+2024-11-01 14:22:04,249 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/123\опись.docx
+2024-11-01 14:22:09,970 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:22:12,188 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:27:22,438 - INFO - Справочник выбран: C:/Users/user/Desktop/вввв/опись.docx
+2024-11-01 14:27:26,360 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/вввв
+2024-11-01 14:28:32,783 - INFO - Справочник выбран: C:/Users/user/Desktop/вввв/опись.docx
+2024-11-01 14:28:35,735 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/вввв
+2024-11-01 14:28:49,235 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:28:52,266 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:32:15,970 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:32:18,095 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:33:51,282 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:33:53,454 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:35:43,876 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:35:47,079 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:36:45,423 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:36:47,798 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:38:13,297 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:38:15,626 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:42:12,891 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:42:15,345 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123
+2024-11-01 14:43:15,345 - INFO - Справочник выбран: C:/Users/user/Desktop/123/опись.docx
+2024-11-01 14:43:18,423 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/123

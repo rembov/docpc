@@ -154,6 +154,8 @@ def extract_archive(file_path, extract_to):
                 logging.info(f"Архив {file_path} успешно извлечён в {extract_to}.")
 
         elif file_path.endswith('.rar'):
+            # Проверка наличия unrar
+            rarfile.UNRAR_TOOL = "path/to/unrar"  # Укажите путь к unrar, если он не в PATH
             with rarfile.RarFile(file_path, 'r') as archive:
                 archive.extractall(extract_to)  # Извлечение всех файлов из RAR
                 logging.info(f"Архив {file_path} успешно извлечён в {extract_to}.")
@@ -171,7 +173,12 @@ def extract_archive(file_path, extract_to):
         messagebox.showinfo("Успех", f"Архив успешно извлечён в {extract_to}")
         return True
 
-    except (zipfile.BadZipFile, rarfile.Error, py7zr.Bad7zFile) as e:
+    except rarfile.Error as e:
+        logging.error(f"Ошибка при извлечении RAR-архива {file_path}: {str(e)}")
+        messagebox.showerror("Ошибка", f"Не удалось извлечь RAR-архив. {str(e)}")
+        return False
+
+    except (zipfile.BadZipFile, py7zr.Bad7zFile) as e:
         logging.error(f"Ошибка: архив повреждён или имеет неверный формат {file_path}: {str(e)}")
         messagebox.showerror("Ошибка", "Архив повреждён или имеет неверный формат.")
         return False
@@ -185,7 +192,6 @@ def extract_archive(file_path, extract_to):
         logging.error(f"Ошибка извлечения файла {file_path}: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при извлечении архива.")
         return False
-
 
 def extract_text_from_pdf(pdf_path):
     text = ""
@@ -285,7 +291,6 @@ def create_inventory(matched_data, output_path):
     # Создание документа Word с описью
     try:
         doc = Document()
-        doc.add_heading('Опись документов', 0)
 
         for document in matched_data:
             doc.add_paragraph(
@@ -342,7 +347,7 @@ def apply_number_to_file(file_path, number, output_path):
         elif ext == "pdf":
             doc = fitz.open(file_path)
             first_page = doc[0]
-            first_page.insert_text((10, 10), f"Номер: {number}", fontsize=12)  # Позиция и размер шрифта
+            first_page.insert_text((10, 10), f" {number}", fontsize=12)  # Позиция и размер шрифта
             doc.save(output_path)
             doc.close()
 
@@ -361,7 +366,7 @@ def apply_number_to_file(file_path, number, output_path):
             workbook.save(output_path)
 
         logging.info(f"Номер {number} успешно нанесен на файл {file_path} и сохранен как {output_path}")
-        messagebox.showinfo("Успех", f"Номер успешно нанесен на файл: {file_path}")
+        #messagebox.showinfo("Успех", f"Номер успешно нанесен на файл: {file_path}")
 
     except Exception as e:
         logging.error(f"Ошибка нанесения номера на файл {file_path}: {str(e)}")
@@ -398,13 +403,24 @@ def load_reference_docx(reference_path):
     :param reference_path: Путь к файлу справочника
     :return: Словарь с данными из справочника
     """
+
     try:
         doc = Document(reference_path)
+
+        # Попытка извлечь наименование и обозначение из свойств документа
+        name = doc.core_properties.title or "Не указано"
+        designation = doc.core_properties.subject or "Не указано"
+
+        # Если наименование или обозначение не указаны, попытаемся извлечь их из содержания
+
+        # Получение формата файла на основе его расширения
+        file_format = reference_path.split('.')[-1].lower()
+
         reference_data = {
-            "name": doc.core_properties.title or "Не указано",
-            "designation": doc.core_properties.subject or "Не указано",
-            "pages": len(doc.paragraphs),
-            "format": "docx"
+            "Наименование:": name,
+            "Обозначение:": designation,
+            "Количество листов:": len(doc.paragraphs),
+            "Формат:": file_format
         }
         print(f"Справочник загружен: {reference_path} с данными: {reference_data}")
         return reference_data
@@ -420,10 +436,10 @@ def extract_metadata_for_comparison(file_path):
     """
     ext = file_path.split('.')[-1].lower()
     metadata = {
-        "name": os.path.basename(file_path),
-        "designation": "Не определено",
-        "pages": 0,
-        "format": ext
+        "Наименование:": os.path.basename(file_path),
+        "Обозначение:": "Не определено",
+        "Количество листов:": 0,
+        "Формат:": ext
     }
 
     try:
@@ -499,7 +515,7 @@ def display_differences_window(differences):
     diff_window.title("Отличия справочника и документов")
 
     scrollbar = tk.Scrollbar(diff_window)
-    text_widget = tk.Text(diff_window, wrap="word", yscrollcommand=scrollbar.set, width=80, height=20)
+    text_widget = tk.Text(diff_window, wrap="word", yscrollcommand=scrollbar.set, width=80, height=20, font=("Courier New", 10))
     scrollbar.config(command=text_widget.yview)
 
     for filename, diff_text in differences.items():
@@ -511,10 +527,19 @@ def display_differences_window(differences):
 
         # Добавляем в вывод только если есть отфильтрованные отличия
         if filtered_diff:
-            text_widget.insert("end", f"Файл: {filename}\n{filtered_diff}\n\n")
+            text_widget.insert("end", f"Файл: {filename}\n", 'filename')
+            text_widget.insert("end", filtered_diff + "\n\n", 'difference')
+
+    # Настройка тегов для выделения текста
+    text_widget.tag_config('filename', foreground='blue', font=("Courier New", 10, 'bold'))
+    text_widget.tag_config('difference', foreground='red')
 
     text_widget.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
+
+    # Добавление кнопки для выхода из окна
+    close_button = tk.Button(diff_window, text="Закрыть", command=diff_window.destroy)
+    close_button.pack(pady=10)  # Добавляем отступ по вертикали для кнопки
 
 
 
@@ -533,16 +558,16 @@ class DocumentProcessorApp:
         self.root.title("Document Processor")
 
         # Поля для путей
-        self.archive_path = tk.StringVar()
+        self.archive_paths = tk.StringVar()
         self.reference_path = tk.StringVar()
         self.output_directory = tk.StringVar()
         self.numbers_path = tk.StringVar()
-        self.files_directory = tk.StringVar()  # Новое поле
+        self.files_directory = tk.StringVar()
 
         # Элементы интерфейса
-        tk.Label(root, text="Путь к архиву:").grid(row=0, column=0, sticky="w")
-        tk.Entry(root, textvariable=self.archive_path, width=50).grid(row=0, column=1)
-        tk.Button(root, text="Обзор", command=self.select_archive).grid(row=0, column=2)
+        tk.Label(root, text="Путь к архивам:").grid(row=0, column=0, sticky="w")
+        tk.Entry(root, textvariable=self.archive_paths, width=50).grid(row=0, column=1)
+        tk.Button(root, text="Обзор", command=self.select_archives).grid(row=0, column=2)
 
         tk.Label(root, text="Путь к справочнику:").grid(row=1, column=0, sticky="w")
         tk.Entry(root, textvariable=self.reference_path, width=50).grid(row=1, column=1)
@@ -552,24 +577,58 @@ class DocumentProcessorApp:
         tk.Entry(root, textvariable=self.output_directory, width=50).grid(row=2, column=1)
         tk.Button(root, text="Обзор", command=self.select_output_directory).grid(row=2, column=2)
 
-        tk.Label(root, text="Путь к файлу с номерами:").grid(row=3, column=0, sticky="w")
-        tk.Entry(root, textvariable=self.numbers_path, width=50).grid(row=3, column=1)
-        tk.Button(root, text="Обзор", command=self.select_numbers).grid(row=3, column=2)
+        tk.Label(root, text="Директория с файлами:").grid(row=3, column=0, sticky="w")
+        tk.Entry(root, textvariable=self.files_directory, width=50).grid(row=3, column=1)
+        tk.Button(root, text="Обзор", command=self.select_files_directory).grid(row=3, column=2)
 
-        tk.Label(root, text="Директория с файлами:").grid(row=4, column=0, sticky="w")  # Новая строка
-        tk.Entry(root, textvariable=self.files_directory, width=50).grid(row=4, column=1)
-        tk.Button(root, text="Обзор", command=self.select_files_directory).grid(row=4, column=2)
+        # Кнопки для функций с 3 строки и столбца
+        button_commands = [
+            (self.run_extraction, "Извлечь архив/архивы"),
+            (self.run_extract_text_and_images, "Извлечь текст и изображения"),
+            (self.run_inventory, "Сформировать опись"),
+            (self.run_apply_numbers, "Нанести номера"),
+            (self.run_rename_files, "Переименовать файлы"),
+            (self.run_compare_with_reference, "Сравнить со справочником")
+        ]
 
-        # Кнопки для функций
-        tk.Button(root, text="Извлечь архив", command=self.run_extraction).grid(row=5, column=0, pady=10)
-        tk.Button(root, text="Извлечь текст и изображения", command=self.run_extract_text_and_images).grid(row=5,
-                                                                                                           column=1,
-                                                                                                           pady=10)
-        tk.Button(root, text="Сформировать опись", command=self.run_inventory).grid(row=6, column=0, pady=10)
-        tk.Button(root, text="Нанести номера", command=self.run_apply_numbers).grid(row=6, column=1, pady=10)
-        tk.Button(root, text="Переименовать файлы", command=self.run_rename_files).grid(row=6, column=2, pady=10)
-        tk.Button(root, text="Сравнить со справочником", command=self.run_compare_with_reference).grid(row=7, column=1,
-                                                                                                       pady=10)
+        for index, (command, text) in enumerate(button_commands):
+            row = 5 + index // 3
+            column = index % 3
+            tk.Button(root, text=text, command=command).grid(row=row, column=column, padx=5, pady=5)
+
+    def select_archives(self):
+        file_paths = filedialog.askopenfilenames(filetypes=[("Archive files", "*.zip *.rar *.7z")])
+        if file_paths:
+            self.archive_paths.set(";".join(file_paths))  # Store multiple paths as a semicolon-separated string
+            logging.info(f"Архивы выбраны: {file_paths}")
+
+    def run_extraction(self):
+        """
+        Метод для запуска процесса извлечения архивов.
+        Извлекает архивы из указанных путей в заданную директорию.
+        """
+        archive_paths = self.archive_paths.get().split(";")  # Get multiple archive paths
+        output_directory = self.output_directory.get()
+
+        if not archive_paths or not output_directory:
+            messagebox.showerror("Ошибка", "Необходимо указать архивы и директорию для извлечения.")
+            return
+
+        for archive_path in archive_paths:
+            if not os.path.isfile(archive_path):
+                messagebox.showerror("Ошибка", f"Указанный архив не существует: {archive_path}")
+                continue
+
+            if not os.path.exists(output_directory):
+                messagebox.showerror("Ошибка", "Указанная директория для извлечения не существует.")
+                return
+
+            # Запускаем процесс извлечения
+            if extract_archive(archive_path, output_directory):
+                logging.info(f"Процесс извлечения для {archive_path} завершён успешно.")
+            else:
+                logging.error(f"Процесс извлечения для {archive_path} завершился с ошибкой.")
+
 
     def run_compare_with_reference(self):
         """Запускает сравнение метаданных с справочником и выводит отличия."""
@@ -597,11 +656,7 @@ class DocumentProcessorApp:
             messagebox.showinfo("Успех", "Проверка и переименование файлов завершено.")
         else:
             messagebox.showerror("Ошибка", "Необходимо выбрать директорию с файлами для переименования.")
-    def select_archive(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Archive files", "*.zip *.rar *.7z")])
-        if file_path:
-            self.archive_path.set(file_path)
-            logging.info(f"Архив выбран: {file_path}")
+
 
     def select_files_directory(self):
         """Метод для выбора директории с файлами для извлечения текста и изображений."""
@@ -628,33 +683,6 @@ class DocumentProcessorApp:
             self.numbers_path.set(file_path)
             logging.info(f"Файл с номерами выбран: {file_path}")
 
-    def run_extraction(self):
-        """
-        Метод для запуска процесса извлечения архива.
-        Извлекает архив из указанного пути в заданную директорию.
-        """
-        archive_path = self.archive_path.get()  # Получаем путь к архиву
-        output_directory = self.output_directory.get()  # Получаем директорию для извлечения
-
-        if not archive_path or not output_directory:
-            messagebox.showerror("Ошибка", "Необходимо указать и архив, и директорию для извлечения.")
-            return
-
-        # Проверяем, существует ли архивный файл
-        if not os.path.isfile(archive_path):
-            messagebox.showerror("Ошибка", "Указанный архив не существует.")
-            return
-
-        # Проверяем, существует ли директория для извлечения
-        if not os.path.exists(output_directory):
-            messagebox.showerror("Ошибка", "Указанная директория для извлечения не существует.")
-            return
-
-        # Запускаем процесс извлечения
-        if extract_archive(archive_path, output_directory):
-            logging.info("Процесс извлечения завершён успешно.")
-        else:
-            logging.error("Процесс извлечения завершился с ошибкой.")
 
     def run_extract_text_and_images(self):
         """Метод для извлечения текста и изображений из файлов различных форматов."""
