@@ -396,33 +396,34 @@ def rename_file_with_dialog():
         logging.error(f"Ошибка при переименовании файла: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при переименовании файла.")
 
-
+'''
 def load_reference_docx(reference_path):
     document = Document(reference_path)
-
-    # Определяем ключи для поиска
     keys = ["Наименование:", "Обозначение:", "Количество листов:", "Формат:"]
-    reference_data = {key: None for key in keys}
+    reference_data = []
+    current_data = {key: None for key in keys}
 
-    # Проходим по всем параграфам в документе
     for para in document.paragraphs:
         text = para.text.strip()
+
+        if not text:
+            if any(value is not None for value in current_data.values()):
+                reference_data.append(current_data.copy())
+                current_data = {key: None for key in keys}
+            continue
+
         for key in keys:
             if text.startswith(key):
-                # Извлекаем значение после ключа
-                reference_data[key] = text[len(key):].strip()
-                break  # Прерываем поиск для текущего параграфа, если нашли ключ
+                current_data[key] = text[len(key):].strip()
+                break
+
+    if any(value is not None for value in current_data.values()):
+        reference_data.append(current_data)
 
     return reference_data
 
 
-
 def extract_metadata_for_comparison(file_path):
-    """
-    Извлекает метаданные из файла для сравнения (наименование, обозначение, страницы, формат).
-    :param file_path: Путь к файлу
-    :return: Словарь с метаданными файла
-    """
     ext = file_path.split('.')[-1].lower()
     metadata = {
         "Наименование:": os.path.basename(file_path),
@@ -432,110 +433,84 @@ def extract_metadata_for_comparison(file_path):
     }
 
     try:
-        # Обработка PDF
         if ext == "pdf":
             with fitz.open(file_path) as pdf:
-                metadata["pages"] = pdf.page_count
-
-        # Обработка DOCX
+                metadata["Количество листов:"] = pdf.page_count
         elif ext == "docx":
             doc = Document(file_path)
-            metadata["designation"] = doc.core_properties.subject or "Не определено"
-            metadata["pages"] = len(doc.paragraphs)
-
-        # Обработка TXT
+            metadata["Обозначение:"] = doc.core_properties.subject or "Не определено"
+            metadata["Количество листов:"] = len(doc.paragraphs)
         elif ext == "txt":
             with open(file_path, "r", encoding="utf-8") as file:
                 content = file.read()
-                metadata["pages"] = content.count('\n') // 50 + 1
-
-        # Обработка XLSX
+                metadata["Количество листов:"] = content.count('\n') // 50 + 1
         elif ext == "xlsx":
             workbook = load_workbook(file_path, data_only=True)
-            metadata["pages"] = sum(1 for _ in workbook.sheetnames)
-
-        print(f"Метаданные для файла {file_path}: {metadata}")
+            metadata["Количество листов:"] = sum(1 for _ in workbook.sheetnames)
     except Exception as e:
-        print(f"Ошибка извлечения метаданных из файла {file_path}: {str(e)}")
+        logging.error(f"Ошибка извлечения метаданных из файла {file_path}: {str(e)}")
 
     return metadata
 
-def compare_metadata_with_reference(directory, reference_data):
-    """
-    Сравнивает метаданные каждого документа в каталоге с метаданными справочника,
-    пропуская сравнение для критериев, у которых значение "Не определено" или None.
-    :param directory: Путь к каталогу с документами
-    :param reference_data: Словарь с эталонными данными для сравнения
-    :return: Словарь с обнаруженными отличиями или сообщением о совпадении
-    """
+
+def compare_files_sequentially(directory, reference_data):
     differences = {}
+    file_list = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
 
-    print(f"Метаданные справочника для сравнения: {reference_data}")
+    for i, filename in enumerate(file_list):
+        if i >= len(reference_data):
+            logging.info("Справочник закончился. Пропуск оставшихся файлов.")
+            break
 
-    for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
-        if os.path.isfile(file_path):
-            file_metadata = extract_metadata_for_comparison(file_path)
-            diff = []
-            for key, ref_value in reference_data.items():
-                # Пропускаем критерии, у которых значение "Не определено" или None
-                if ref_value in ["Не определено", None]:
-                    continue
+        file_metadata = extract_metadata_for_comparison(file_path)
+        ref_metadata = reference_data[i]
 
+        diff = []
+        for key, ref_value in ref_metadata.items():
+            if ref_value not in ["Не определено", None]:
                 file_value = file_metadata.get(key)
                 if file_value != ref_value:
-                    diff.append(
-                        f"{key.capitalize()} отличается Справочник {ref_value} vs Файл {file_value}"
-                    )
+                    diff.append(f"{key.capitalize()} отличается: Справочник {ref_value} vs Файл {file_value}")
 
-            if diff:
-                differences[filename] = "\n".join(diff)
-                print(f"Отличия найдены в файле {filename}: {diff}")
-            else:
-                differences[filename] = "Файл соответствует справочным данным."
-                print(f"Файл {filename} полностью соответствует справочнику.")
+        if diff:
+            differences[filename] = "\n".join(diff)
+            logging.info(f"Отличия найдены в файле {filename}: {diff}")
+        else:
+            differences[filename] = "Файл соответствует справочным данным."
+            logging.info(f"Файл {filename} полностью соответствует справочнику.")
 
     return differences
 
 
-
 def display_differences_window(differences):
-    """
-    Отображает отличия в новом окне Tkinter, исключая критерии, где значение не определено.
-    :param differences: Словарь с обнаруженными отличиями
-    """
     diff_window = tk.Toplevel()
     diff_window.title("Отличия справочника и документов")
 
     scrollbar = tk.Scrollbar(diff_window)
-    text_widget = tk.Text(diff_window, wrap="word", yscrollcommand=scrollbar.set, width=80, height=20, font=("Courier New", 10))
+    text_widget = tk.Text(diff_window, wrap="word", yscrollcommand=scrollbar.set, width=80, height=20,
+                          font=("Courier New", 10))
     scrollbar.config(command=text_widget.yview)
 
     for filename, diff_text in differences.items():
-        # Фильтрация отличий, исключая те, где эталонное значение "Не указано" или None
-        filtered_diff = "\n".join(
-            line for line in diff_text.split("\n")
-            if not ("Справочник (Не указано)" in line or "Справочник (None)" in line)
-        )
-
-        # Добавляем в вывод только если есть отфильтрованные отличия
-        if filtered_diff:
+        if diff_text:
             text_widget.insert("end", f"Файл: {filename}\n", 'filename')
-            text_widget.insert("end", filtered_diff + "\n\n", 'difference')
+            text_widget.insert("end", diff_text + "\n\n", 'difference')
 
-    # Настройка тегов для выделения текста
     text_widget.tag_config('filename', foreground='blue', font=("Courier New", 10, 'bold'))
     text_widget.tag_config('difference', foreground='red')
-
     text_widget.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
-
-    # Добавление кнопки для выхода из окна
     close_button = tk.Button(diff_window, text="Закрыть", command=diff_window.destroy)
-    close_button.pack(pady=10)  # Добавляем отступ по вертикали для кнопки
+    close_button.pack(pady=10)
 
 
+def start_comparison_process(reference_path, directory):
+    reference_data = load_reference_docx(reference_path)
+    differences = compare_files_sequentially(directory, reference_data)
+    display_differences_window(differences)
 
+'''
 def check_and_rename_files(directory):
     """Проверяет и переименовывает файлы в каталоге, чтобы соответствовать определённому шаблону именования."""
     pattern = re.compile(r"^[A-Za-z0-9_-]+$")
@@ -562,17 +537,17 @@ class DocumentProcessorApp:
         tk.Entry(root, textvariable=self.archive_paths, width=50).grid(row=0, column=1)
         tk.Button(root, text="Обзор", command=self.select_archives).grid(row=0, column=2)
 
-        tk.Label(root, text="Путь к справочнику:").grid(row=1, column=0, sticky="w")
-        tk.Entry(root, textvariable=self.reference_path, width=50).grid(row=1, column=1)
-        tk.Button(root, text="Обзор", command=self.select_reference).grid(row=1, column=2)
+       # tk.Label(root, text="Путь к справочнику:").grid(row=1, column=0, sticky="w")
+       # tk.Entry(root, textvariable=self.reference_path, width=50).grid(row=1, column=1)
+       # tk.Button(root, text="Обзор", command=self.select_reference).grid(row=1, column=2)
 
-        tk.Label(root, text="Директория для результатов:").grid(row=2, column=0, sticky="w")
-        tk.Entry(root, textvariable=self.output_directory, width=50).grid(row=2, column=1)
-        tk.Button(root, text="Обзор", command=self.select_output_directory).grid(row=2, column=2)
+        tk.Label(root, text="Директория для результатов:").grid(row=1, column=0, sticky="w")
+        tk.Entry(root, textvariable=self.output_directory, width=50).grid(row=1, column=1)
+        tk.Button(root, text="Обзор", command=self.select_output_directory).grid(row=1, column=2)
 
-        tk.Label(root, text="Директория с файлами:").grid(row=3, column=0, sticky="w")
-        tk.Entry(root, textvariable=self.files_directory, width=50).grid(row=3, column=1)
-        tk.Button(root, text="Обзор", command=self.select_files_directory).grid(row=3, column=2)
+        tk.Label(root, text="Директория с файлами:").grid(row=2, column=0, sticky="w")
+        tk.Entry(root, textvariable=self.files_directory, width=50).grid(row=2, column=1)
+        tk.Button(root, text="Обзор", command=self.select_files_directory).grid(row=2, column=2)
 
         # Кнопки для функций с 3 строки и столбца
         button_commands = [
@@ -581,7 +556,7 @@ class DocumentProcessorApp:
             (self.run_inventory, "Сформировать опись"),
             (self.run_apply_numbers, "Нанести номера"),
             (self.run_rename_files, "Переименовать файлы"),
-            (self.run_compare_with_reference, "Сравнить со справочником")
+           # (self.run_compare_with_reference, "Сравнить со справочником")
         ]
 
         for index, (command, text) in enumerate(button_commands):
@@ -621,10 +596,8 @@ class DocumentProcessorApp:
                 logging.info(f"Процесс извлечения для {archive_path} завершён успешно.")
             else:
                 logging.error(f"Процесс извлечения для {archive_path} завершился с ошибкой.")
-
-
+    '''
     def run_compare_with_reference(self):
-        """Запускает сравнение метаданных с справочником и выводит отличия."""
         reference_path = self.reference_path.get()
         files_directory = self.files_directory.get()
 
@@ -632,15 +605,8 @@ class DocumentProcessorApp:
             messagebox.showerror("Ошибка", "Необходимо выбрать справочник и директорию с файлами для сравнения.")
             return
 
-        reference_data = load_reference_docx(reference_path)
-        if reference_data:
-            differences = compare_metadata_with_reference(files_directory, reference_data)
-            if differences:
-                display_differences_window(differences)
-            else:
-                messagebox.showinfo("Информация", "Отличий нет во всех разделах метаданных.")
-        else:
-            messagebox.showerror("Ошибка", "Не удалось загрузить справочник для сравнения.")
+        start_comparison_process(reference_path, files_directory)
+    '''
     def run_rename_files(self):
         """Запускает проверку и переименование файлов в указанной директории."""
         directory = self.files_directory.get()
