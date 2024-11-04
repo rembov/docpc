@@ -1,0 +1,134 @@
+2024-11-03 10:31:57,641 - INFO - Архивы выбраны: ('C:/Users/user/Desktop/12.rar', 'C:/Users/user/Desktop/123.zip')
+2024-11-03 10:32:07,798 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/тест
+2024-11-03 10:32:09,350 - INFO - Архив C:/Users/user/Desktop/12.rar успешно извлечён в C:/Users/user/Desktop/тест.
+2024-11-03 10:32:11,001 - INFO - Процесс извлечения для C:/Users/user/Desktop/12.rar завершён успешно.
+2024-11-03 10:32:11,215 - INFO - Архив C:/Users/user/Desktop/123.zip успешно извлечён в C:/Users/user/Desktop/тест.
+2024-11-03 10:32:12,982 - INFO - Процесс извлечения для C:/Users/user/Desktop/123.zip завершён успешно.
+2024-11-03 10:32:32,704 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/тест/12
+2024-11-03 10:32:33,969 - INFO - Номер 1 успешно нанесен на файл C:/Users/user/Desktop/тест/12\11.txt и сохранен как C:/Users/user/Desktop/тест/12\numbered_11.txt
+2024-11-03 10:32:33,975 - INFO - Номер 2 успешно нанесен на файл C:/Users/user/Desktop/тест/12\22.txt и сохранен как C:/Users/user/Desktop/тест/12\numbered_22.txt
+2024-11-03 10:32:33,977 - INFO - Номер 3 успешно нанесен на файл C:/Users/user/Desktop/тест/12\333.txt и сохранен как C:/Users/user/Desktop/тест/12\numbered_333.txt
+2024-11-03 10:33:02,376 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/тест/123
+2024-11-03 10:33:03,157 - INFO - Номер 1 успешно нанесен на файл C:/Users/user/Desktop/тест/123\1.txt и сохранен как C:/Users/user/Desktop/тест/123\numbered_1.txt
+2024-11-03 10:33:03,368 - INFO - Номер 2 успешно нанесен на файл C:/Users/user/Desktop/тест/123\15_6_1 8-13.pdf и сохранен как C:/Users/user/Desktop/тест/123\numbered_15_6_1 8-13.pdf
+2024-11-03 10:33:03,370 - INFO - Номер 3 успешно нанесен на файл C:/Users/user/Desktop/тест/123\2.txt и сохранен как C:/Users/user/Desktop/тест/123\numbered_2.txt
+2024-11-03 10:33:03,371 - INFO - Номер 4 успешно нанесен на файл C:/Users/user/Desktop/тест/123\3.txt и сохранен как C:/Users/user/Desktop/тест/123\numbered_3.txt
+2024-11-03 10:33:03,412 - INFO - Номер 5 успешно нанесен на файл C:/Users/user/Desktop/тест/123\435.xlsx и сохранен как C:/Users/user/Desktop/тест/123\numbered_435.xlsx
+2024-11-03 10:33:03,423 - INFO - Номер 6 успешно нанесен на файл C:/Users/user/Desktop/тест/123\5787.docx и сохранен как C:/Users/user/Desktop/тест/123\numbered_5787.docx
+2024-11-03 10:33:03,425 - INFO - Номер 7 успешно нанесен на файл C:/Users/user/Desktop/тест/123\ccccccc.txt и сохранен как C:/Users/user/Desktop/тест/123\numbered_ccccccc.txt
+2024-11-03 10:33:03,430 - INFO - Номер 8 успешно нанесен на файл C:/Users/user/Desktop/тест/123\extracted_data.txt и сохранен как C:/Users/user/Desktop/тест/123\numbered_extracted_data.txt
+2024-11-03 10:33:03,481 - INFO - Номер 9 успешно нанесен на файл C:/Users/user/Desktop/тест/123\inventory.docx и сохранен как C:/Users/user/Desktop/тест/123\numbered_inventory.docx
+2024-11-03 10:33:03,529 - INFO - Номер 10 успешно нанесен на файл C:/Users/user/Desktop/тест/123\опись.docx и сохранен как C:/Users/user/Desktop/тест/123\numbered_опись.docx
+2024-11-03 10:33:03,641 - INFO - Номер 11 успешно нанесен на файл C:/Users/user/Desktop/тест/123\э3 (2).docx и сохранен как C:/Users/user/Desktop/тест/123\numbered_э3 (2).docx
+2024-11-03 10:34:12,595 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/тест/12
+2024-11-03 10:34:20,429 - INFO - Опись успешно сохранена в C:/Users/user/Desktop/тест/12\опись.docx
+2024-11-03 10:34:49,877 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/тест/123
+2024-11-03 10:34:56,558 - INFO - Текст успешно извлечён из C:/Users/user/Desktop/тест/123\1.txt
+2024-11-03 10:34:56,952 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_38_image_1.png
+2024-11-03 10:34:57,018 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_39_image_1.png
+2024-11-03 10:34:57,035 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_40_image_1.png
+2024-11-03 10:34:57,045 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_41_image_1.png
+2024-11-03 10:34:57,128 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_42_image_1.png
+2024-11-03 10:34:57,205 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_43_image_1.png
+2024-11-03 10:34:57,283 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_44_image_1.png
+2024-11-03 10:34:57,288 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_44_image_2.png
+2024-11-03 10:34:57,303 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_45_image_1.png
+2024-11-03 10:34:57,313 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_46_image_1.png
+2024-11-03 10:34:57,401 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_47_image_1.png
+2024-11-03 10:34:57,465 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_48_image_1.png
+2024-11-03 10:34:57,532 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_49_image_1.png
+2024-11-03 10:34:57,607 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_50_image_1.png
+2024-11-03 10:34:57,632 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_51_image_1.png
+2024-11-03 10:34:57,649 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_51_image_2.png
+2024-11-03 10:34:57,663 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_52_image_1.png
+2024-11-03 10:34:57,670 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_52_image_2.png
+2024-11-03 10:34:57,775 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_53_image_1.png
+2024-11-03 10:34:57,844 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_54_image_1.png
+2024-11-03 10:34:57,905 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_55_image_1.png
+2024-11-03 10:34:57,913 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_55_image_2.png
+2024-11-03 10:34:57,922 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_57_image_1.png
+2024-11-03 10:34:57,973 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_58_image_1.png
+2024-11-03 10:34:57,976 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_58_image_2.png
+2024-11-03 10:34:57,979 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_58_image_3.png
+2024-11-03 10:34:58,032 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_59_image_1.png
+2024-11-03 10:34:58,036 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_59_image_2.png
+2024-11-03 10:34:58,039 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_59_image_3.png
+2024-11-03 10:34:58,063 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_60_image_1.png
+2024-11-03 10:34:58,070 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_61_image_1.png
+2024-11-03 10:34:58,081 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_62_image_1.png
+2024-11-03 10:34:58,127 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_62_image_2.png
+2024-11-03 10:34:58,142 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_63_image_1.png
+2024-11-03 10:34:58,193 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_63_image_2.png
+2024-11-03 10:34:58,199 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_63_image_3.png
+2024-11-03 10:34:58,206 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_63_image_4.png
+2024-11-03 10:34:58,211 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_64_image_1.png
+2024-11-03 10:34:58,213 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_64_image_2.png
+2024-11-03 10:34:58,225 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_65_image_1.png
+2024-11-03 10:34:58,231 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_66_image_1.png
+2024-11-03 10:34:58,273 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_66_image_2.png
+2024-11-03 10:34:58,285 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_67_image_1.png
+2024-11-03 10:34:58,305 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_68_image_1.png
+2024-11-03 10:34:58,318 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_68_image_2.png
+2024-11-03 10:34:58,349 - INFO - Текст успешно извлечён из C:/Users/user/Desktop/тест/123\15_6_1 8-13.pdf
+2024-11-03 10:34:58,349 - INFO - Текст успешно извлечён из C:/Users/user/Desktop/тест/123\2.txt
+2024-11-03 10:34:58,349 - INFO - Текст успешно извлечён из C:/Users/user/Desktop/тест/123\3.txt
+2024-11-03 10:35:46,659 - INFO - Файл C:/Users/user/Desktop/тест/12/11.txt переименован и сохранен как C:/Users/user/Desktop/тест/12\654.txt
+2024-11-03 11:34:57,032 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/тест/123
+2024-11-03 11:35:00,211 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/тест/123
+2024-11-03 11:35:02,769 - INFO - Текст успешно извлечён из C:/Users/user/Desktop/тест/123\1.txt
+2024-11-03 11:35:03,112 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_38_image_1.png
+2024-11-03 11:35:03,170 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_39_image_1.png
+2024-11-03 11:35:03,188 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_40_image_1.png
+2024-11-03 11:35:03,188 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_41_image_1.png
+2024-11-03 11:35:03,266 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_42_image_1.png
+2024-11-03 11:35:03,335 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_43_image_1.png
+2024-11-03 11:35:03,404 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_44_image_1.png
+2024-11-03 11:35:03,420 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_44_image_2.png
+2024-11-03 11:35:03,435 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_45_image_1.png
+2024-11-03 11:35:03,435 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_46_image_1.png
+2024-11-03 11:35:03,527 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_47_image_1.png
+2024-11-03 11:35:03,589 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_48_image_1.png
+2024-11-03 11:35:03,651 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_49_image_1.png
+2024-11-03 11:35:03,720 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_50_image_1.png
+2024-11-03 11:35:03,736 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_51_image_1.png
+2024-11-03 11:35:03,752 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_51_image_2.png
+2024-11-03 11:35:03,767 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_52_image_1.png
+2024-11-03 11:35:03,767 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_52_image_2.png
+2024-11-03 11:35:03,867 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_53_image_1.png
+2024-11-03 11:35:03,952 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_54_image_1.png
+2024-11-03 11:35:04,006 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_55_image_1.png
+2024-11-03 11:35:04,021 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_55_image_2.png
+2024-11-03 11:35:04,021 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_57_image_1.png
+2024-11-03 11:35:04,068 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_58_image_1.png
+2024-11-03 11:35:04,084 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_58_image_2.png
+2024-11-03 11:35:04,084 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_58_image_3.png
+2024-11-03 11:35:04,137 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_59_image_1.png
+2024-11-03 11:35:04,137 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_59_image_2.png
+2024-11-03 11:35:04,137 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_59_image_3.png
+2024-11-03 11:35:04,153 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_60_image_1.png
+2024-11-03 11:35:04,168 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_61_image_1.png
+2024-11-03 11:35:04,168 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_62_image_1.png
+2024-11-03 11:35:04,222 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_62_image_2.png
+2024-11-03 11:35:04,237 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_63_image_1.png
+2024-11-03 11:35:04,291 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_63_image_2.png
+2024-11-03 11:35:04,291 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_63_image_3.png
+2024-11-03 11:35:04,306 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_63_image_4.png
+2024-11-03 11:35:04,306 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_64_image_1.png
+2024-11-03 11:35:04,306 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_64_image_2.png
+2024-11-03 11:35:04,322 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_65_image_1.png
+2024-11-03 11:35:04,338 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_66_image_1.png
+2024-11-03 11:35:04,385 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_66_image_2.png
+2024-11-03 11:35:04,391 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_67_image_1.png
+2024-11-03 11:35:04,407 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_68_image_1.png
+2024-11-03 11:35:04,422 - INFO - Изображение сохранено: C:/Users/user/Desktop/тест/123\extracted_images\page_68_image_2.png
+2024-11-03 11:35:04,469 - INFO - Текст успешно извлечён из C:/Users/user/Desktop/тест/123\15_6_1 8-13.pdf
+2024-11-03 11:35:04,469 - INFO - Текст успешно извлечён из C:/Users/user/Desktop/тест/123\2.txt
+2024-11-03 11:35:04,469 - INFO - Текст успешно извлечён из C:/Users/user/Desktop/тест/123\3.txt
+2024-11-03 13:35:16,020 - INFO - Архивы выбраны: ('C:/Users/user/Downloads/ЭД_WBDOSE.zip', 'C:/Users/user/Downloads/ЭД_MARC.zip', 'C:/Users/user/Downloads/ЭД_Hague.zip')
+2024-11-03 13:35:40,128 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/тест
+2024-11-03 13:35:42,994 - INFO - Архив C:/Users/user/Downloads/ЭД_WBDOSE.zip успешно извлечён в C:/Users/user/Desktop/тест.
+2024-11-03 13:35:44,703 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_WBDOSE.zip завершён успешно.
+2024-11-03 13:35:44,768 - INFO - Архив C:/Users/user/Downloads/ЭД_MARC.zip успешно извлечён в C:/Users/user/Desktop/тест.
+2024-11-03 13:35:45,489 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_MARC.zip завершён успешно.
+2024-11-03 13:35:45,549 - INFO - Архив C:/Users/user/Downloads/ЭД_Hague.zip успешно извлечён в C:/Users/user/Desktop/тест.
+2024-11-03 13:35:46,329 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_Hague.zip завершён успешно.

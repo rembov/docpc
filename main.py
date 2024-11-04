@@ -537,9 +537,9 @@ class DocumentProcessorApp:
         tk.Entry(root, textvariable=self.archive_paths, width=50).grid(row=0, column=1)
         tk.Button(root, text="Обзор", command=self.select_archives).grid(row=0, column=2)
 
-       # tk.Label(root, text="Путь к справочнику:").grid(row=1, column=0, sticky="w")
-       # tk.Entry(root, textvariable=self.reference_path, width=50).grid(row=1, column=1)
-       # tk.Button(root, text="Обзор", command=self.select_reference).grid(row=1, column=2)
+        tk.Label(root, text="Путь к справочнику:").grid(row=3, column=0, sticky="w")
+        tk.Entry(root, textvariable=self.reference_path, width=50).grid(row=3, column=1)
+        tk.Button(root, text="Обзор", command=self.select_referenc1).grid(row=3, column=2)
 
         tk.Label(root, text="Директория для результатов:").grid(row=1, column=0, sticky="w")
         tk.Entry(root, textvariable=self.output_directory, width=50).grid(row=1, column=1)
@@ -556,7 +556,7 @@ class DocumentProcessorApp:
             (self.run_inventory, "Сформировать опись"),
             (self.run_apply_numbers, "Нанести номера"),
             (self.run_rename_files, "Переименовать файлы"),
-           # (self.run_compare_with_reference, "Сравнить со справочником")
+            (self.run_inventory_with_reference, "Опись со справочником")
         ]
 
         for index, (command, text) in enumerate(button_commands):
@@ -564,6 +564,142 @@ class DocumentProcessorApp:
             column = index % 3
             tk.Button(root, text=text, command=command).grid(row=row, column=column, padx=5, pady=5)
 
+    def select_referenc1(self):
+        file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
+        if file_path:
+            self.reference_path.set(file_path)
+            logging.info(f"Справочник выбран: {file_path}")
+
+    def load_reference_from_excel(self, excel_path):
+        """
+        Загружает справочник из Excel и создает словарь для замены наименований.
+        :param excel_path: Путь к Excel-файлу
+        :return: Словарь {частичное наименование: полное наименование}
+        """
+        reference_dict = {}
+        try:
+            df = pd.read_excel(excel_path)
+            for _, row in df.iterrows():
+                partial_name = row['Частичное наименование']  # Замените на реальное имя столбца
+                full_name = row['Полное наименование']  # Замените на реальное имя столбца
+                reference_dict[partial_name] = full_name
+            logging.info("Справочник успешно загружен.")
+        except Exception as e:
+            logging.error(f"Ошибка загрузки справочника из Excel: {e}")
+        return reference_dict
+
+    def standardize_document_titles(self, documents, reference_dict):
+        """
+        Обновляет наименования документов на основе справочника.
+        :param documents: Список словарей с метаданными документов
+        :param reference_dict: Справочник с наименованиями
+        :return: Обновленный список документов с эталонными наименованиями
+        """
+        for document in documents:
+            original_name = document['name']
+            for partial_name, full_name in reference_dict.items():
+                if re.search(r'\b' + re.escape(partial_name) + r'\b', original_name, re.IGNORECASE):
+                    document['name'] = full_name
+                    logging.info(f"Наименование документа обновлено с '{original_name}' на '{full_name}'")
+                    break
+        return documents
+
+    def extract_data_from_documents(self, directory):
+        """
+        Извлекает данные о документах из указанной директории.
+        :param directory: Путь к директории с документами
+        :return: Список данных о документах
+        """
+        documents = []
+        for root, _, files in os.walk(directory):
+            for filename in files:
+                file_path = os.path.join(root, filename)
+                ext = os.path.splitext(filename)[1].lower()
+                if ext in ['.pdf', '.docx', '.txt']:
+                    name, pages = self.extract_metadata(file_path, ext)
+                    print(self.extract_metadata(file_path, ext))
+                    documents.append({
+                        'name': name,
+                        'designation': 'Обозначение документа',  # Замените на реальное значение, если доступно
+                        'pages': pages,
+                        'format': ext[1:]
+                    })
+        return documents
+
+    def extract_metadata(self, file_path, ext):
+        """
+        Извлекает метаданные из файла.
+        :param file_path: Путь к файлу
+        :param ext: Расширение файла
+        :return: Наименование документа и количество страниц
+        """
+        name = os.path.basename(file_path)  # Имя файла
+        pages = 0  # Количество страниц, инициализируем как 0
+
+        try:
+            if ext == '.pdf':
+                from PyPDF2 import PdfReader
+                with open(file_path, 'rb') as file:
+                    reader = PdfReader(file)
+                    pages = len(reader.pages)  # Получаем количество страниц в PDF
+
+            elif ext == '.docx':
+                doc = Document(file_path)
+                pages = len(doc.element.xpath('//w:sectPr'))  # Пример получения количества страниц
+
+            elif ext == '.txt':
+                with open(file_path, 'r', encoding='utf-8') as file:
+                    content = file.read()
+                    pages = content.count('\n') // 50 + 1  # Примерное количество страниц
+
+        except Exception as e:
+            logging.error(f"Ошибка при извлечении метаданных из файла {file_path}: {str(e)}")
+
+        return name, pages
+
+    def create_inventory(self, documents, output_path):
+        """
+        Создает опись документов и сохраняет в формате .docx.
+        :param documents: Данные о документах
+        :param output_path: Путь для сохранения
+        """
+        try:
+            doc = Document()
+            for document in documents:
+                doc.add_paragraph(
+                    f"Наименование: {document['name']}\n"
+                    f"Обозначение: {document['designation']}\n"
+                    f"Количество листов: {document['pages']}\n"
+                    f"Формат: {document['format']}"
+                )
+            doc.save(output_path)
+            logging.info(f"Опись сохранена: {output_path}")
+        except Exception as e:
+            logging.error(f"Ошибка при создании описи: {e}")
+
+    def run_inventory_with_reference(self):
+        # Проверка пути справочника и директорий
+        reference_path = self.reference_path.get()
+        files_directory = self.files_directory.get()
+        output_directory = self.output_directory.get()
+
+        if not reference_path or not files_directory or not output_directory:
+            messagebox.showerror("Ошибка", "Укажите справочник, директорию с файлами и директорию для результатов.")
+            return
+
+        # Загрузка справочника
+        reference_dict = self.load_reference_from_excel(reference_path)
+
+        # Извлечение данных о документах
+        documents = self.extract_data_from_documents(files_directory)
+
+        # Приведение наименований документов
+        standardized_documents = self.standardize_document_titles(documents, reference_dict)
+
+        # Создание и сохранение описи
+        output_path = f"{output_directory}/опись со справочника.docx"
+        self.create_inventory(standardized_documents, output_path)
+        messagebox.showinfo("Успех", "Опись успешно создана с учетом справочника.")
     def select_archives(self):
         file_paths = filedialog.askopenfilenames(filetypes=[("Archive files", "*.zip *.rar *.7z")])
         if file_paths:
