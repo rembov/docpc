@@ -15,7 +15,7 @@ import os
 import logging
 import tkinter as tk
 from tkinter import filedialog, messagebox, simpledialog
-from concurrent.futures import ThreadPoolExecutor
+import shutil
 
 output_directory_text_images = ""
 output_directory_numbering = ""
@@ -333,44 +333,49 @@ def extract_data_from_documents(directory):
     return documents
 
 
+
+
 def apply_number_to_file(file_path, number, output_path):
-    ext = file_path.split('.')[-1].lower()
+    ext = os.path.splitext(file_path)[-1].lower()
 
     try:
         # Нанесение номера на .docx
-        if ext == "docx":
+        if ext == ".docx":
             doc = Document(file_path)
-            doc.add_paragraph(f"Номер: {number}")  # Добавляем номер в начале документа
+            doc.add_paragraph(f"Номер: {number}")
             doc.save(output_path)
 
         # Нанесение номера на .pdf
-        elif ext == "pdf":
+        elif ext == ".pdf":
+            # Используем временный файл для предотвращения ошибки "save to original must be incremental"
+            temp_output_path = output_path + "_temp.pdf"
             doc = fitz.open(file_path)
             first_page = doc[0]
-            first_page.insert_text((10, 10), f" {number}", fontsize=12)  # Позиция и размер шрифта
-            doc.save(output_path)
+            first_page.insert_text((10, 10), f"{number}", fontsize=12)
+            doc.save(temp_output_path)
             doc.close()
+            # Перемещаем временный файл на место оригинального output_path
+            shutil.move(temp_output_path, output_path)
 
         # Нанесение номера на .txt
-        elif ext == "txt":
+        elif ext == ".txt":
             with open(file_path, "r", encoding="utf-8") as f:
                 content = f.read()
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(f"Номер: {number}\n{content}")
 
         # Нанесение номера на .xlsx
-        elif ext == "xlsx":
+        elif ext == ".xlsx":
             workbook = load_workbook(file_path)
             sheet = workbook.active
-            sheet["A1"] = f"Номер: {number}"  # Вставляем номер в первую ячейку
+            sheet["A1"] = f"Номер: {number}"
             workbook.save(output_path)
 
         logging.info(f"Номер {number} успешно нанесен на файл {file_path} и сохранен как {output_path}")
-        #messagebox.showinfo("Успех", f"Номер успешно нанесен на файл: {file_path}")
 
     except Exception as e:
         logging.error(f"Ошибка нанесения номера на файл {file_path}: {str(e)}")
-        messagebox.showerror("Ошибка", f"Ошибка при нанесении номера на файл: {file_path}")
+        messagebox.showerror("Ошибка", f"Ошибка при нанесении номера на файл {file_path}: {str(e)}")
 
 
 def rename_file_with_dialog():
@@ -396,121 +401,7 @@ def rename_file_with_dialog():
         logging.error(f"Ошибка при переименовании файла: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при переименовании файла.")
 
-'''
-def load_reference_docx(reference_path):
-    document = Document(reference_path)
-    keys = ["Наименование:", "Обозначение:", "Количество листов:", "Формат:"]
-    reference_data = []
-    current_data = {key: None for key in keys}
 
-    for para in document.paragraphs:
-        text = para.text.strip()
-
-        if not text:
-            if any(value is not None for value in current_data.values()):
-                reference_data.append(current_data.copy())
-                current_data = {key: None for key in keys}
-            continue
-
-        for key in keys:
-            if text.startswith(key):
-                current_data[key] = text[len(key):].strip()
-                break
-
-    if any(value is not None for value in current_data.values()):
-        reference_data.append(current_data)
-
-    return reference_data
-
-
-def extract_metadata_for_comparison(file_path):
-    ext = file_path.split('.')[-1].lower()
-    metadata = {
-        "Наименование:": os.path.basename(file_path),
-        "Обозначение:": "Не определено",
-        "Количество листов:": 0,
-        "Формат:": ext
-    }
-
-    try:
-        if ext == "pdf":
-            with fitz.open(file_path) as pdf:
-                metadata["Количество листов:"] = pdf.page_count
-        elif ext == "docx":
-            doc = Document(file_path)
-            metadata["Обозначение:"] = doc.core_properties.subject or "Не определено"
-            metadata["Количество листов:"] = len(doc.paragraphs)
-        elif ext == "txt":
-            with open(file_path, "r", encoding="utf-8") as file:
-                content = file.read()
-                metadata["Количество листов:"] = content.count('\n') // 50 + 1
-        elif ext == "xlsx":
-            workbook = load_workbook(file_path, data_only=True)
-            metadata["Количество листов:"] = sum(1 for _ in workbook.sheetnames)
-    except Exception as e:
-        logging.error(f"Ошибка извлечения метаданных из файла {file_path}: {str(e)}")
-
-    return metadata
-
-
-def compare_files_sequentially(directory, reference_data):
-    differences = {}
-    file_list = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
-
-    for i, filename in enumerate(file_list):
-        if i >= len(reference_data):
-            logging.info("Справочник закончился. Пропуск оставшихся файлов.")
-            break
-
-        file_path = os.path.join(directory, filename)
-        file_metadata = extract_metadata_for_comparison(file_path)
-        ref_metadata = reference_data[i]
-
-        diff = []
-        for key, ref_value in ref_metadata.items():
-            if ref_value not in ["Не определено", None]:
-                file_value = file_metadata.get(key)
-                if file_value != ref_value:
-                    diff.append(f"{key.capitalize()} отличается: Справочник {ref_value} vs Файл {file_value}")
-
-        if diff:
-            differences[filename] = "\n".join(diff)
-            logging.info(f"Отличия найдены в файле {filename}: {diff}")
-        else:
-            differences[filename] = "Файл соответствует справочным данным."
-            logging.info(f"Файл {filename} полностью соответствует справочнику.")
-
-    return differences
-
-
-def display_differences_window(differences):
-    diff_window = tk.Toplevel()
-    diff_window.title("Отличия справочника и документов")
-
-    scrollbar = tk.Scrollbar(diff_window)
-    text_widget = tk.Text(diff_window, wrap="word", yscrollcommand=scrollbar.set, width=80, height=20,
-                          font=("Courier New", 10))
-    scrollbar.config(command=text_widget.yview)
-
-    for filename, diff_text in differences.items():
-        if diff_text:
-            text_widget.insert("end", f"Файл: {filename}\n", 'filename')
-            text_widget.insert("end", diff_text + "\n\n", 'difference')
-
-    text_widget.tag_config('filename', foreground='blue', font=("Courier New", 10, 'bold'))
-    text_widget.tag_config('difference', foreground='red')
-    text_widget.pack(side="left", fill="both", expand=True)
-    scrollbar.pack(side="right", fill="y")
-    close_button = tk.Button(diff_window, text="Закрыть", command=diff_window.destroy)
-    close_button.pack(pady=10)
-
-
-def start_comparison_process(reference_path, directory):
-    reference_data = load_reference_docx(reference_path)
-    differences = compare_files_sequentially(directory, reference_data)
-    display_differences_window(differences)
-
-'''
 def check_and_rename_files(directory):
     """Проверяет и переименовывает файлы в каталоге, чтобы соответствовать определённому шаблону именования."""
     pattern = re.compile(r"^[A-Za-z0-9_-]+$")
@@ -556,7 +447,7 @@ class DocumentProcessorApp:
             (self.run_inventory, "Сформировать опись"),
             (self.run_apply_numbers, "Нанести номера"),
             (self.run_rename_files, "Переименовать файлы"),
-            (self.run_inventory_with_reference, "Опись со справочником")
+            (self.run_inventory_with_reference, "Опись со справочником\n+извлечение")
         ]
 
         for index, (command, text) in enumerate(button_commands):
@@ -574,20 +465,24 @@ class DocumentProcessorApp:
         """
         Загружает справочник из Excel и создает словарь для замены наименований.
         :param excel_path: Путь к Excel-файлу
-        :return: Словарь {частичное наименование: полное наименование}
+        :return: Словарь {частичное наименование на русском: полное наименование на английском}
         """
+        if not os.path.exists(excel_path):
+            messagebox.showerror("Ошибка", f"Файл справочника не найден: {excel_path}")
+            return {}
+
         reference_dict = {}
         try:
             df = pd.read_excel(excel_path)
             for _, row in df.iterrows():
-                partial_name = row['Частичное наименование']  # Замените на реальное имя столбца
-                full_name = row['Полное наименование']  # Замените на реальное имя столбца
+                partial_name = row['Наименование документа']
+                full_name = row['Наименование документа на английском']
                 reference_dict[partial_name] = full_name
             logging.info("Справочник успешно загружен.")
         except Exception as e:
             logging.error(f"Ошибка загрузки справочника из Excel: {e}")
+            messagebox.showerror("Ошибка", f"Ошибка при загрузке справочника: {str(e)}")
         return reference_dict
-
     def standardize_document_titles(self, documents, reference_dict):
         """
         Обновляет наименования документов на основе справочника.
@@ -604,7 +499,7 @@ class DocumentProcessorApp:
                     break
         return documents
 
-    def extract_data_from_documents(self, directory):
+    def extract_data_from_documents(self, directory, designation_dict):
         """
         Извлекает данные о документах из указанной директории.
         :param directory: Путь к директории с документами
@@ -617,10 +512,10 @@ class DocumentProcessorApp:
                 ext = os.path.splitext(filename)[1].lower()
                 if ext in ['.pdf', '.docx', '.txt']:
                     name, pages = self.extract_metadata(file_path, ext)
-                    print(self.extract_metadata(file_path, ext))
+                    designation = designation_dict.get(filename, 'Обозначение не найдено')
                     documents.append({
                         'name': name,
-                        'designation': 'Обозначение документа',  # Замените на реальное значение, если доступно
+                        'designation': designation,
                         'pages': pages,
                         'format': ext[1:]
                     })
@@ -678,33 +573,44 @@ class DocumentProcessorApp:
             logging.error(f"Ошибка при создании описи: {e}")
 
     def run_inventory_with_reference(self):
-        # Проверка пути справочника и директорий
         reference_path = self.reference_path.get()
         files_directory = self.files_directory.get()
         output_directory = self.output_directory.get()
+        designation_file_path = self.reference_path.get()
+        archive_paths = self.archive_paths.get()
 
-        if not reference_path or not files_directory or not output_directory:
-            messagebox.showerror("Ошибка", "Укажите справочник, директорию с файлами и директорию для результатов.")
+
+        if not reference_path or not files_directory or not output_directory or not designation_file_path:
+            messagebox.showerror("Ошибка", "Необходимо указать все пути.")
             return
 
-        # Загрузка справочника
+        # Извлечение архивов
+        self.run_extraction()
+        # Нанесение номеров на файлы
+        self.run_apply_numbers()
+
+        # Загрузка справочника и обозначений
         reference_dict = self.load_reference_from_excel(reference_path)
+        designation_dict = self.load_reference_from_excel(reference_path)
 
         # Извлечение данных о документах
-        documents = self.extract_data_from_documents(files_directory)
+        documents = self.extract_data_from_documents(files_directory,designation_dict)
 
         # Приведение наименований документов
         standardized_documents = self.standardize_document_titles(documents, reference_dict)
 
+
         # Создание и сохранение описи
-        output_path = f"{output_directory}/опись со справочника.docx"
+        output_path = os.path.join(output_directory, "опись.docx")
         self.create_inventory(standardized_documents, output_path)
-        messagebox.showinfo("Успех", "Опись успешно создана с учетом справочника.")
+        messagebox.showinfo("Успех", "Опись успешно создана с учетом справочника, обозначений и нанесенных номеров.")
+
+
     def select_archives(self):
-        file_paths = filedialog.askopenfilenames(filetypes=[("Archive files", "*.zip *.rar *.7z")])
-        if file_paths:
-            self.archive_paths.set(";".join(file_paths))  # Store multiple paths as a semicolon-separated string
-            logging.info(f"Архивы выбраны: {file_paths}")
+            file_paths = filedialog.askopenfilenames(filetypes=[("Archive files", "*.zip *.rar *.7z")])
+            if file_paths:
+                self.archive_paths.set(";".join(file_paths))  # Store multiple paths as a semicolon-separated string
+                logging.info(f"Архивы выбраны: {file_paths}")
 
     def run_extraction(self):
         """
@@ -732,17 +638,7 @@ class DocumentProcessorApp:
                 logging.info(f"Процесс извлечения для {archive_path} завершён успешно.")
             else:
                 logging.error(f"Процесс извлечения для {archive_path} завершился с ошибкой.")
-    '''
-    def run_compare_with_reference(self):
-        reference_path = self.reference_path.get()
-        files_directory = self.files_directory.get()
 
-        if not reference_path or not files_directory:
-            messagebox.showerror("Ошибка", "Необходимо выбрать справочник и директорию с файлами для сравнения.")
-            return
-
-        start_comparison_process(reference_path, files_directory)
-    '''
     def run_rename_files(self):
         """Запускает проверку и переименование файлов в указанной директории."""
         directory = self.files_directory.get()
@@ -833,28 +729,23 @@ class DocumentProcessorApp:
         create_inventory(extracted_data, output_path)
 
     def run_apply_numbers(self):
-        """Метод для автоматического нанесения номеров на файлы в указанной директории."""
+        """Метод для автоматического нанесения номеров на файлы во всех подкаталогах."""
         directory = self.files_directory.get()
 
-        # Проверка на наличие директории
-        if not directory:
-            messagebox.showerror("Ошибка", "Необходимо выбрать директорию с файлами для нумерации.")
-            return
+        # Пронумеровываем и переименовываем файлы рекурсивно
+        index = 1
+        for root, _, files in os.walk(directory):
+            for file_name in files:
+                file_path = os.path.join(root, file_name)
+                output_path = os.path.join(root, file_name)  # Сохраняем в той же папке
+                # Нанесение текущего номера на файл и сохранение под новым именем
+                apply_number_to_file(file_path, index, output_path)
+                index += 1
 
-        # Список всех файлов в директории
-        files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+        messagebox.showinfo("Успех", "Номера успешно нанесены на файлы во всех каталогах и подкаталогах.")
 
-        # Пронумеровываем файлы
-        for index, file_name in enumerate(files, start=1):
-            file_path = os.path.join(directory, file_name)
-            output_path = os.path.join(directory, f"numbered_{file_name}")
 
-            # Наносим текущий номер (index) на файл
-            apply_number_to_file(file_path, index, output_path)
-
-        messagebox.showinfo("Успех", "Номера успешно нанесены на файлы.")
-
-    def run_rename_files(self):
+def run_rename_files(self):
         rename_file_with_dialog()
 
 
