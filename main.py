@@ -22,7 +22,6 @@ output_directory_numbering = ""
 # Настройка логирования
 logging.basicConfig(filename="process.txt", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-
 def extract_data_from_pdf(pdf_path, output_dir):
     """
     Извлекает текст и изображения из PDF.
@@ -499,10 +498,10 @@ class DocumentProcessorApp:
                 ext = os.path.splitext(filename)[1].lower()
                 if ext in ['.pdf', '.docx', '.txt']:
                     name, pages = self.extract_metadata(file_path, ext)
-                    designation = designation_dict.get(filename, 'Обозначение не найдено')
+                    name1 = os.path.splitext(name)[0]
                     documents.append({
                         'name': name,
-                        'designation': designation,
+                        'designation': name1,
                         'pages': pages,
                         'format': ext[1:]
                     })
@@ -533,6 +532,9 @@ class DocumentProcessorApp:
                 with open(file_path, 'r', encoding='utf-8') as file:
                     content = file.read()
                     pages = content.count('\n') // 50 + 1  # Примерное количество страниц
+            elif ext == '.xlsx':
+                workbook = load_workbook(filename=file_path, read_only=True)
+                pages = len(workbook.sheetnames)
 
         except Exception as e:
             logging.error(f"Ошибка при извлечении метаданных из файла {file_path}: {str(e)}")
@@ -760,7 +762,8 @@ class DocumentProcessorApp:
 
         # Создаем опись документов
         output_path = os.path.join(directory, "опись.docx")
-        create_inventory(extracted_data, output_path)
+        self.create_inventory(extracted_data, output_path)
+
 
     def run_apply_numbers(self):
         """Метод для автоматического нанесения номеров на файлы во всех подкаталогах."""
