@@ -698,7 +698,6 @@ class DocumentProcessorApp:
             self.numbers_path.set(file_path)
             logging.info(f"Файл с номерами выбран: {file_path}")
 
-
     def run_extract_text_and_images(self):
         """Метод для извлечения текста и изображений из файлов различных форматов."""
         directory = self.files_directory.get()  # Использование новой директории
@@ -706,34 +705,45 @@ class DocumentProcessorApp:
             logging.error("Директория для извлечения не указана.")
             return
 
+        # Запрос пути для сохранения извлечённого текста и изображений
+        output_directory = filedialog.askdirectory(title="Выберите директорию для сохранения извлечённых данных")
+        if not output_directory:
+            logging.error("Директория для сохранения не указана.")
+            return
+
         extracted_data = ""
-        output_image_dir = os.path.join(directory, "extracted_images")  # Директория для сохранения изображений
+        output_image_dir = os.path.join(output_directory, "extracted_images")  # Директория для сохранения изображений
         os.makedirs(output_image_dir, exist_ok=True)  # Создаём директорию, если она не существует
 
-        for file_name in os.listdir(directory):
-            file_path = os.path.join(directory, file_name)
-            _, ext = os.path.splitext(file_name)
+        # Путь для сохранения извлечённого текста
+        output_text_path = os.path.join(output_directory, "extracted_data.txt")
 
-            if ext.lower() == ".xlsx":
-                extracted_data += f"\n--- Данные из {file_name} ---\n"
-                extracted_data += extract_data_from_excel(file_path)
+        # Используем os.walk для рекурсивного обхода всех подкаталогов
+        for root, _, files in os.walk(directory):
+            for file_name in files:
+                file_path = os.path.join(root, file_name)
+                _, ext = os.path.splitext(file_name)
 
-            elif ext.lower() == ".docx":
-                extracted_data += f"\n--- Данные из {file_name} ---\n"
-                extracted_data += extract_data_from_docx(file_path,
-                                                         output_image_dir)  # Передаём путь для сохранения изображений
+                if ext.lower() == ".xlsx":
+                    extracted_data += f"\n--- Данные из {file_name} ---\n"
+                    extracted_data += extract_data_from_xlsx(file_path)  # Прямо добавляем данные
 
-            elif ext.lower() == ".txt":
-                extracted_data += f"\n--- Данные из {file_name} ---\n"
-                extracted_data += extract_data_from_txt(file_path)
+                elif ext.lower() == ".docx":
+                    extracted_data += f"\n--- Данные из {file_name} ---\n"
+                    extracted_data += extract_data_from_docx(file_path,
+                                                             output_image_dir)  # Передаём путь для сохранения изображений
 
-            elif ext.lower() == ".pdf":
-                extracted_data += f"\n--- Данные из {file_name} ---\n"
-                extracted_data += extract_data_from_pdf(file_path,
-                                                        output_image_dir)  # Передаём путь для сохранения изображений
+                elif ext.lower() == ".txt":
+                    extracted_data += f"\n--- Данные из {file_name} ---\n"
+                    extracted_data += extract_data_from_txt(file_path)  # Измените, если нужно передать путь
 
-        output_path = os.path.join(directory, "extracted_data.txt")
-        with open(output_path, "w", encoding="utf-8") as output_file:
+                elif ext.lower() == ".pdf":
+                    extracted_data += f"\n--- Данные из {file_name} ---\n"
+                    extracted_data += extract_data_from_pdf(file_path,
+                                                            output_image_dir)  # Передаём путь для сохранения изображений
+
+        # Сохранение извлечённых данных в текстовый файл
+        with open(output_text_path, "w", encoding="utf-8") as output_file:
             output_file.write(extracted_data)
 
         logging.info("Извлечение текста и изображений завершено.")
