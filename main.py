@@ -751,19 +751,62 @@ class DocumentProcessorApp:
         logging.info("Извлечение текста и изображений завершено.")
         messagebox.showinfo("Успех", "Извлечение завершено.")
 
+    def get_all_files_in_directory(self,directory, extensions=('.pdf', '.docx', '.txt', '.xlsx')):
+        """
+        Рекурсивно находит все файлы с заданными расширениями в указанной директории и подкаталогах.
+        :param directory: Путь к корневой директории для поиска
+        :param extensions: Кортеж с расширениями файлов, которые нужно найти
+        :return: Список путей к файлам с нужными расширениями
+        """
+        file_paths = []
+        for root, _, files in os.walk(directory):
+            for filename in files:
+                if filename.lower().endswith(extensions):
+                    file_paths.append(os.path.join(root, filename))
+        return file_paths
+
     def run_inventory(self):
-
         """Метод для создания описи документов."""
-        directory = filedialog.askdirectory()
-        if directory:
-            self.reference_path.set(directory)
-        # Извлекаем данные о документах из указанной директории
-        extracted_data = extract_data_from_documents(directory)  # Функция для извлечения данных из файлов
+        directory = filedialog.askdirectory()  # Выбор каталога
+        if not directory:
+            logging.warning("Директория не выбрана.")
+            messagebox.showwarning("Предупреждение", "Директория не выбрана.")
+            return
 
-        # Создаем опись документов
-        output_path = os.path.join(directory, "опись.docx")
-        self.create_inventory(extracted_data, output_path)
+        self.reference_path.set(directory)  # Сохраняем путь к выбранной директории
 
+        # Инициализируем список для хранения извлечённых данных
+        extracted_data = []
+
+        # Получаем все файлы с нужными расширениями во всех подкаталогах
+        all_files = self.get_all_files_in_directory(directory)
+
+        # Проходим по каждому файлу и извлекаем данные
+        for file_path in all_files:
+            ext = os.path.splitext(file_path)[1].lower()
+            name, pages = self.extract_metadata(file_path, ext)
+            name1 = os.path.splitext(name)[0]  # Убираем расширение из имени файла
+            extracted_data.append({
+                'name': name,
+                'designation': name1,
+                'pages': pages,
+                'format': ext[1:]
+            })
+
+        # Проверяем наличие извлечённых данных перед созданием описи
+        if extracted_data:
+            # Создаем опись документов
+            output_path = os.path.join(directory, "опись.docx")
+            try:
+                self.create_inventory(extracted_data, output_path)  # Создаем опись
+                logging.info("Опись документов успешно создана.")
+                messagebox.showinfo("Успех", "Опись документов успешно создана.")
+            except Exception as e:
+                logging.error(f"Ошибка при создании описи документов: {e}")
+                messagebox.showerror("Ошибка", "Ошибка при создании описи документов.")
+        else:
+            logging.warning("Нет данных для создания описи документов.")
+            messagebox.showwarning("Предупреждение", "Нет данных для создания описи документов.")
 
     def run_apply_numbers(self):
         """Метод для автоматического нанесения номеров на файлы во всех подкаталогах."""
