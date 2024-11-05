@@ -461,28 +461,15 @@ class DocumentProcessorApp:
             self.reference_path.set(file_path)
             logging.info(f"Справочник выбран: {file_path}")
 
-    def load_reference_from_excel(self, excel_path):
-        """
-        Загружает справочник из Excel и создает словарь для замены наименований.
-        :param excel_path: Путь к Excel-файлу
-        :return: Словарь {частичное наименование на русском: полное наименование на английском}
-        """
-        if not os.path.exists(excel_path):
-            messagebox.showerror("Ошибка", f"Файл справочника не найден: {excel_path}")
-            return {}
-
-        reference_dict = {}
+    def load_reference_from_excel(self,file_path):
         try:
-            df = pd.read_excel(excel_path)
-            for _, row in df.iterrows():
-                partial_name = row['Наименование документа']
-                full_name = row['Наименование документа на английском']
-                reference_dict[partial_name] = full_name
-            logging.info("Справочник успешно загружен.")
+            df = pd.read_excel(file_path)
+            reference_dict = dict(zip(df.iloc[:, 0].astype(str), df.iloc[:, 1].astype(str)))  # Преобразуйте в строки
+            print(reference_dict)
+            return reference_dict
         except Exception as e:
-            logging.error(f"Ошибка загрузки справочника из Excel: {e}")
-            messagebox.showerror("Ошибка", f"Ошибка при загрузке справочника: {str(e)}")
-        return reference_dict
+            print(f"Ошибка при загрузке справочника: {e}")
+            return {}
     def standardize_document_titles(self, documents, reference_dict):
         """
         Обновляет наименования документов на основе справочника.
@@ -598,13 +585,50 @@ class DocumentProcessorApp:
 
         # Приведение наименований документов
         standardized_documents = self.standardize_document_titles(documents, reference_dict)
-
+        self.rename_files_according_to_reference(documents, reference_dict)
+        # Нанесение номеров на документы
+        self.add_numbers_to_document_titles(standardized_documents)
 
         # Создание и сохранение описи
         output_path = os.path.join(output_directory, "опись.docx")
         self.create_inventory(standardized_documents, output_path)
         messagebox.showinfo("Успех", "Опись успешно создана с учетом справочника, обозначений и нанесенных номеров.")
 
+    def rename_files_according_to_reference(self, documents, reference_dict):
+        """
+        Переименовывает файлы в директории в соответствии со справочником.
+        :param documents: Список документов с оригинальными наименованиями
+        :param reference_dict: Словарь с наименованиями на русском и английском
+        """
+        for document in documents:
+            original_name = document['name']  # Извлекаем оригинальное имя из словаря
+            new_name = reference_dict.get(original_name, original_name)  # Получаем новое имя
+
+            # Поиск файла по оригинальному имени
+            for root, _, files in os.walk(self.files_directory.get()):
+                for file in files:
+                    file_path = os.path.join(root, file)
+
+                    # Проверяем, совпадает ли файл с оригинальным именем
+                    if original_name in file:
+                        new_file_path = os.path.join(root, new_name)
+                        # Переименование файла
+                        try:
+                            os.rename(file_path, new_file_path)
+                            logging.info(f"Файл '{file}' переименован в '{new_name}'")
+                        except Exception as e:
+                            logging.error(f"Ошибка при переименовании файла {file}: {e}")
+
+    def add_numbers_to_document_titles(self, documents):
+        """
+        Добавляет номера к наименованиям документов.
+        :param documents: Список документов с метаданными
+        :return: Обновленный список документов с добавленными номерами
+        """
+        for index, document in enumerate(documents, start=1):
+            document['name'] = f"{index}. {document['name']}"  # Добавляем номер перед названием
+            logging.info(f"Номер добавлен к документу: {document['name']}")
+        return documents
 
     def select_archives(self):
             file_paths = filedialog.askopenfilenames(filetypes=[("Archive files", "*.zip *.rar *.7z")])
