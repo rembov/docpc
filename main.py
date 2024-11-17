@@ -8,6 +8,7 @@ import py7zr
 import pytesseract
 import fitz  # PyMuPDF
 import pandas as pd
+from PyPDF2 import PdfReader
 from docx import Document
 from openpyxl import load_workbook
 from PIL import Image, ImageDraw
@@ -400,7 +401,29 @@ def rename_file_with_dialog():
         logging.error(f"Ошибка при переименовании файла: {str(e)}")
         messagebox.showerror("Ошибка", "Ошибка при переименовании файла.")
 
+def read_file_content(file_path, ext):
+    """
+    Считывает содержимое файла в зависимости от его расширения.
+    :param file_path: Путь к файлу
+    :param ext: Расширение файла
+    :return: Содержимое файла в виде строки
+    """
+    content = ""
+    try:
+        if ext.lower() == ".txt":
+            with open(file_path, 'r', encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+        elif ext.lower() == ".docx":
+            doc = Document(file_path)
+            content = "\n".join([para.text for para in doc.paragraphs])
+        elif ext.lower() == ".pdf":
+            pdf_reader = PdfReader(file_path)
+            content = "\n".join([page.extract_text() for page in pdf_reader.pages])
+        logging.debug(f"Содержимое файла '{file_path}': {content[:100]}...")
+    except Exception as e:
+        logging.error(f"Ошибка при чтении содержимого файла '{file_path}': {str(e)}")
 
+    return content
 def check_and_rename_files(directory):
     """Проверяет и переименовывает файлы в каталоге, чтобы соответствовать определённому шаблону именования."""
     pattern = re.compile(r"^[A-Za-z0-9_-]+$")
@@ -507,6 +530,7 @@ class DocumentProcessorApp:
                     })
         return documents
 
+
     def extract_metadata(self, file_path, ext):
         """
         Извлекает метаданные из файла.
@@ -587,8 +611,9 @@ class DocumentProcessorApp:
 
         # Приведение наименований документов
         standardized_documents = self.standardize_document_titles(documents, reference_dict)
-        self.rename_files_according_to_reference(documents, reference_dict)
+        #self.rename_files_according_to_reference(documents, reference_dict)
         # Нанесение номеров на документы
+        self.rename_files_recursively(files_directory,reference_path)
         self.add_numbers_to_document_titles(standardized_documents)
 
         # Создание и сохранение описи
@@ -596,30 +621,89 @@ class DocumentProcessorApp:
         self.create_inventory(standardized_documents, output_path)
         messagebox.showinfo("Успех", "Опись успешно создана с учетом справочника, обозначений и нанесенных номеров.")
 
-    def rename_files_according_to_reference(self, documents, reference_dict):
+    def rename_files_recursively(self, directory, reference_path):
         """
-        Переименовывает файлы в директории в соответствии со справочником.
-        :param documents: Список документов с оригинальными наименованиями
-        :param reference_dict: Словарь с наименованиями на русском и английском
+        Рекурсивно переименовывает файлы в каталоге, сравнивая их содержимое и название со справочником.
+        :param directory: Путь к директории с файлами
+        :param reference_path: Путь к Excel файлу справочника
         """
-        for document in documents:
-            original_name = document['name']  # Извлекаем оригинальное имя из словаря
-            new_name = reference_dict.get(original_name, original_name)  # Получаем новое имя
+        try:
+            # Загружаем справочник
+            df_reference = pd.read_excel(reference_path)
+            logging.debug(f"Загружены данные справочника:\n{df_reference.head()}")
 
-            # Поиск файла по оригинальному имени
-            for root, _, files in os.walk(self.files_directory.get()):
-                for file in files:
-                    file_path = os.path.join(root, file)
+            # Проверка структуры справочника
+            if 'Русское название' not in df_reference.columns or 'Английское название' not in df_reference.columns:
+                logging.error("Справочник должен содержать столбцы 'Русское название' и 'Английское название'.")
+                return
 
-                    # Проверяем, совпадает ли файл с оригинальным именем
-                    if original_name in file:
-                        new_file_path = os.path.join(root, new_name)
-                        # Переименование файла
-                        try:
-                            os.rename(file_path, new_file_path)
-                            logging.info(f"Файл '{file}' переименован в '{new_name}'")
-                        except Exception as e:
-                            logging.error(f"Ошибка при переименовании файла {file}: {e}")
+            # Создание словаря для переименования (включаем и русские, и английские названия)
+            reference_dict = {
+                str(row['Русское название']).strip().lower(): str(row['Русское название']).strip()
+                for _, row in df_reference.iterrows()
+            }
+            reference_dict.update({
+                str(row['Английское название']).strip().lower(): str(row['Русское название']).strip()
+                for _, row in df_reference.iterrows()
+            })
+            logging.debug(f"Словарь для переименования: {reference_dict}")
+
+            # Проход по всем файлам в директории рекурсивно
+            for root, _, files in os.walk(directory):
+                logging.debug(f"Проверяем директорию: {root}")
+
+                for filename in files:
+                    file_path = os.path.join(root, filename)
+                    name_without_ext, ext = os.path.splitext(filename)
+                    name_lower = name_without_ext.lower()
+
+                    logging.debug(f"Обрабатываем файл: {filename}")
+
+                    # Проверка прав доступа
+                    if not os.access(file_path, os.R_OK | os.W_OK):
+                        logging.warning(f"Нет доступа к файлу: {file_path}")
+                        continue
+
+                    # Проверка совпадения по названию файла
+                    new_name = reference_dict.get(name_lower)
+                    if new_name:
+                        new_filename = f"{new_name}{ext}"
+                        new_file_path = os.path.join(root, new_filename)
+
+                        # Переименовываем файл, если имя изменилось и файла с таким именем ещё нет
+                        if new_file_path != file_path and not os.path.exists(new_file_path):
+                            try:
+                                os.rename(file_path, new_file_path)
+                                logging.info(f"Файл '{filename}' переименован в '{new_filename}' по названию")
+                            except Exception as e:
+                                logging.error(f"Ошибка при переименовании файла '{filename}': {str(e)}")
+                            continue
+
+                    # Если совпадение по названию не найдено, проверяем содержимое файла
+                    file_content = read_file_content(file_path, ext)
+                    if not file_content:
+                        logging.debug(f"Не удалось прочитать содержимое файла: {filename}")
+                        continue
+
+                    # Проверка совпадения по содержимому файла
+                    for ref_name, new_name in reference_dict.items():
+                        if re.search(rf"\b{re.escape(ref_name)}\b", file_content, re.IGNORECASE):
+                            new_filename = f"{new_name}{ext}"
+                            new_file_path = os.path.join(root, new_filename)
+
+                            # Переименовываем файл по содержимому
+                            if new_file_path != file_path and not os.path.exists(new_file_path):
+                                try:
+                                    os.rename(file_path, new_file_path)
+                                    logging.info(f"Файл '{filename}' переименован в '{new_filename}' по содержимому")
+                                    break
+                                except Exception as e:
+                                    logging.error(f"Ошибка при переименовании файла '{filename}': {str(e)}")
+                            else:
+                                logging.warning(f"Файл с именем '{new_filename}' уже существует.")
+            logging.info("Рекурсивное переименование файлов завершено.")
+        except Exception as e:
+            logging.error(f"Ошибка при загрузке справочника или переименовании файлов: {str(e)}")
 
     def add_numbers_to_document_titles(self, documents):
         """

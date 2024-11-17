@@ -1,0 +1,432 @@
+2024-11-06 13:21:20,708 - INFO - Архивы выбраны: ('C:/Users/user/Downloads/ЭД_WBDOSE.zip', 'C:/Users/user/Downloads/ЭД_MARC.zip', 'C:/Users/user/Downloads/ЭД_Hague.zip')
+2024-11-06 13:21:33,004 - INFO - Директория с файлами выбрана: C:/Users/user/Desktop/рнрен
+2024-11-06 13:21:37,034 - INFO - Директория для результатов выбрана: C:/Users/user/Desktop/рнрен
+2024-11-06 13:21:43,566 - INFO - Справочник выбран: C:/Users/user/Downloads/Доза справочник для ии.xlsx
+2024-11-06 13:21:46,420 - INFO - Архив C:/Users/user/Downloads/ЭД_WBDOSE.zip успешно извлечён в C:/Users/user/Desktop/рнрен.
+2024-11-06 13:21:48,186 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_WBDOSE.zip завершён успешно.
+2024-11-06 13:21:48,283 - INFO - Архив C:/Users/user/Downloads/ЭД_MARC.zip успешно извлечён в C:/Users/user/Desktop/рнрен.
+2024-11-06 13:21:49,467 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_MARC.zip завершён успешно.
+2024-11-06 13:21:49,534 - INFO - Архив C:/Users/user/Downloads/ЭД_Hague.zip успешно извлечён в C:/Users/user/Desktop/рнрен.
+2024-11-06 13:21:50,455 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_Hague.zip завершён успешно.
+2024-11-06 13:21:50,492 - INFO - Номер 1 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf
+2024-11-06 13:21:50,527 - INFO - Номер 2 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf
+2024-11-06 13:21:50,547 - INFO - Номер 3 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Отказное письмо по сертификации на Hague eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Отказное письмо по сертификации на Hague eng.pdf
+2024-11-06 13:21:50,580 - INFO - Номер 4 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Отказное письмо по сертификации на Hague eng_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Отказное письмо по сертификации на Hague eng_перевод_(ru).pdf
+2024-11-06 13:21:50,600 - INFO - Номер 5 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142513.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142513.pdf
+2024-11-06 13:21:50,622 - INFO - Номер 6 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142513_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142513_перевод_(ru).docx
+2024-11-06 13:21:50,664 - INFO - Номер 7 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142513_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142513_перевод_(ru).pdf
+2024-11-06 13:21:50,681 - INFO - Номер 8 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142514.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142514.pdf
+2024-11-06 13:21:50,705 - INFO - Номер 9 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142514_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142514_перевод_(ru).docx
+2024-11-06 13:21:50,752 - INFO - Номер 10 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142514_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142514_перевод_(ru).pdf
+2024-11-06 13:21:50,772 - INFO - Номер 11 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142515.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142515.pdf
+2024-11-06 13:21:50,798 - INFO - Номер 12 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142515_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142515_перевод_(ru).docx
+2024-11-06 13:21:50,842 - INFO - Номер 13 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142515_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142515_перевод_(ru).pdf
+2024-11-06 13:21:50,863 - INFO - Номер 14 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142516.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142516.pdf
+2024-11-06 13:21:50,886 - INFO - Номер 15 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142516_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142516_перевод_(ru).docx
+2024-11-06 13:21:50,933 - INFO - Номер 16 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142516_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\Сертификат калибровки CEV0142516_перевод_(ru).pdf
+2024-11-06 13:21:50,945 - INFO - Номер 17 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\ENG2\Отказное письмо по сертификации на Hague eng_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\ENG2\Отказное письмо по сертификации на Hague eng_перевод_(ru).docx
+2024-11-06 13:21:50,981 - INFO - Номер 18 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_Hague\ENG2\Отказное письмо по сертификации на Hague eng_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_Hague\ENG2\Отказное письмо по сертификации на Hague eng_перевод_(ru).pdf
+2024-11-06 13:21:51,011 - INFO - Номер 19 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf
+2024-11-06 13:21:51,044 - INFO - Номер 20 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf
+2024-11-06 13:21:51,065 - INFO - Номер 21 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Аккуя_согл_ЭД_28143_23.07.24.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Аккуя_согл_ЭД_28143_23.07.24.pdf
+2024-11-06 13:21:51,085 - INFO - Номер 22 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Аккуя_согл_ЭД_28143_23.07.24_eng.docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Аккуя_согл_ЭД_28143_23.07.24_eng.docx
+2024-11-06 13:21:51,134 - INFO - Номер 23 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\РЭ MARC7000 eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\РЭ MARC7000 eng.pdf
+2024-11-06 13:21:51,862 - INFO - Номер 24 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\РЭ MARC7000 ru.docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\РЭ MARC7000 ru.docx
+2024-11-06 13:21:51,880 - INFO - Номер 25 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142517.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142517.pdf
+2024-11-06 13:21:51,902 - INFO - Номер 26 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142517_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142517_перевод_(ru).docx
+2024-11-06 13:21:51,948 - INFO - Номер 27 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142517_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142517_перевод_(ru).pdf
+2024-11-06 13:21:51,966 - INFO - Номер 28 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142518.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142518.pdf
+2024-11-06 13:21:52,010 - INFO - Номер 29 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142518_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142518_перевод_(ru).docx
+2024-11-06 13:21:52,049 - INFO - Номер 30 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142518_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142518_перевод_(ru).pdf
+2024-11-06 13:21:52,070 - INFO - Номер 31 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142519.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142519.pdf
+2024-11-06 13:21:52,098 - INFO - Номер 32 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142519_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142519_перевод_(ru).docx
+2024-11-06 13:21:52,157 - INFO - Номер 33 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142519_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142519_перевод_(ru).pdf
+2024-11-06 13:21:52,178 - INFO - Номер 34 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142520.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142520.pdf
+2024-11-06 13:21:52,201 - INFO - Номер 35 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142520_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142520_перевод_(ru).docx
+2024-11-06 13:21:52,240 - INFO - Номер 36 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142520_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_MARC\Сертификат калибровки CEV0142520_перевод_(ru).pdf
+2024-11-06 13:21:52,481 - INFO - Номер 37 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\10_Сертификат калибровки Calibration Certificate(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\10_Сертификат калибровки Calibration Certificate(ru).docx
+2024-11-06 13:21:52,516 - INFO - Номер 38 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\10_Сертификат калибровки Calibration Certificate.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\10_Сертификат калибровки Calibration Certificate.pdf
+2024-11-06 13:21:52,544 - INFO - Номер 39 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\11_Протокол испытаний EMC Test Report(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\11_Протокол испытаний EMC Test Report(ru).docx
+2024-11-06 13:21:52,618 - INFO - Номер 40 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\11_Протокол испытаний EMC Test Report.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\11_Протокол испытаний EMC Test Report.pdf
+2024-11-06 13:21:52,681 - INFO - Номер 41 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\12_Протокол испытаний LVD Test  Report(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\12_Протокол испытаний LVD Test  Report(ru).docx
+2024-11-06 13:21:52,702 - INFO - Номер 42 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\12_Протокол испытаний LVD Test  Report.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\12_Протокол испытаний LVD Test  Report.pdf
+2024-11-06 13:21:52,718 - INFO - Номер 43 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\13_Сертификат происхождения(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\13_Сертификат происхождения(ru).docx
+2024-11-06 13:21:52,743 - INFO - Номер 44 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\13_Сертификат происхождения.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\13_Сертификат происхождения.pdf
+2024-11-06 13:21:52,792 - INFO - Номер 45 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_.pdf
+2024-11-06 13:21:52,827 - INFO - Номер 46 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_eng.pdf
+2024-11-06 13:21:52,841 - INFO - Номер 47 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\15_Декларация СЕ WBDOSE-CE Declaration of Conformity(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\15_Декларация СЕ WBDOSE-CE Declaration of Conformity(ru).docx
+2024-11-06 13:21:52,869 - INFO - Номер 48 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf
+2024-11-06 13:21:52,886 - INFO - Номер 49 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\16_Decleration СЕ_TEOS+100SERIES - Copy.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\16_Decleration СЕ_TEOS+100SERIES - Copy.pdf
+2024-11-06 13:21:52,900 - INFO - Номер 50 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\16_Decleration СЕ_TEOS+100SERIES(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\16_Decleration СЕ_TEOS+100SERIES(ru).docx
+2024-11-06 13:21:52,916 - INFO - Номер 51 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\16_Decleration СЕ_TEOS+100SERIES.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\16_Decleration СЕ_TEOS+100SERIES.pdf
+2024-11-06 13:21:52,945 - INFO - Номер 52 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\17_Файл данных на дозиметры_Cihaz 20 QC M1.xlsx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\17_Файл данных на дозиметры_Cihaz 20 QC M1.xlsx
+2024-11-06 13:21:52,974 - INFO - Номер 53 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\17_Файл данных на дозиметры_Cihaz 21 QC M1.xlsx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\17_Файл данных на дозиметры_Cihaz 21 QC M1.xlsx
+2024-11-06 13:21:52,997 - INFO - Номер 54 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\17_Файл данных на дозиметры_Cihaz 22 QC M1.xlsx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\17_Файл данных на дозиметры_Cihaz 22 QC M1.xlsx
+2024-11-06 13:21:53,022 - INFO - Номер 55 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\18_Файл данных на дозиметры_C\u0130HAZ 20 QA.xlsx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\18_Файл данных на дозиметры_C\u0130HAZ 20 QA.xlsx
+2024-11-06 13:21:53,047 - INFO - Номер 56 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\18_Файл данных на дозиметры_C\u0130HAZ 21 QA.xlsx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\18_Файл данных на дозиметры_C\u0130HAZ 21 QA.xlsx
+2024-11-06 13:21:53,073 - INFO - Номер 57 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\18_Файл данных на дозиметры_C\u0130HAZ 22 QA.xlsx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\18_Файл данных на дозиметры_C\u0130HAZ 22 QA.xlsx
+2024-11-06 13:21:53,087 - INFO - Номер 58 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00020(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00020(ru).docx
+2024-11-06 13:21:53,106 - INFO - Номер 59 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00020.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00020.pdf
+2024-11-06 13:21:53,116 - INFO - Номер 60 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00021(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00021(ru).docx
+2024-11-06 13:21:53,138 - INFO - Номер 61 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00021.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00021.pdf
+2024-11-06 13:21:53,152 - INFO - Номер 62 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00022(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00022(ru).docx
+2024-11-06 13:21:53,174 - INFO - Номер 63 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00022.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\1_ЭТ на ПК_RDKR-WB00022.pdf
+2024-11-06 13:21:57,140 - INFO - Номер 64 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\240718_AKU_RD_1094_Броканова.xlsx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\240718_AKU_RD_1094_Броканова.xlsx
+2024-11-06 13:21:57,308 - INFO - Номер 65 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 20(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 20(ru).docx
+2024-11-06 13:21:57,329 - INFO - Номер 66 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 20.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 20.pdf
+2024-11-06 13:21:57,482 - INFO - Номер 67 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 21(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 21(ru).docx
+2024-11-06 13:21:57,508 - INFO - Номер 68 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 21.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 21.pdf
+2024-11-06 13:21:57,509 - INFO - Номер 69 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 22(ru).doc и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 22(ru).doc
+2024-11-06 13:21:57,531 - INFO - Номер 70 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 22.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\3_Dosimetry System Assessment Certificate 22.pdf
+2024-11-06 13:21:57,568 - INFO - Номер 71 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0048(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0048(ru).docx
+2024-11-06 13:21:57,582 - INFO - Номер 72 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0048.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0048.pdf
+2024-11-06 13:21:57,625 - INFO - Номер 73 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0049(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0049(ru).docx
+2024-11-06 13:21:57,641 - INFO - Номер 74 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0049.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0049.pdf
+2024-11-06 13:21:57,742 - INFO - Номер 75 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0050(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0050(ru).docx
+2024-11-06 13:21:57,762 - INFO - Номер 76 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0050.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0050.pdf
+2024-11-06 13:21:57,798 - INFO - Номер 77 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0051(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0051(ru).docx
+2024-11-06 13:21:57,812 - INFO - Номер 78 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0051.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0051.pdf
+2024-11-06 13:21:57,847 - INFO - Номер 79 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0060(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0060(ru).docx
+2024-11-06 13:21:57,864 - INFO - Номер 80 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0060.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0060.pdf
+2024-11-06 13:21:57,900 - INFO - Номер 81 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0061(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0061(ru).docx
+2024-11-06 13:21:57,915 - INFO - Номер 82 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0061.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\4_Сертификат облучения_20_RDKR-IC-B-2024-0061.pdf
+2024-11-06 13:21:57,947 - INFO - Номер 83 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0052(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0052(ru).docx
+2024-11-06 13:21:57,965 - INFO - Номер 84 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0052.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0052.pdf
+2024-11-06 13:21:58,032 - INFO - Номер 85 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0053(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0053(ru).docx
+2024-11-06 13:21:58,049 - INFO - Номер 86 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0053.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0053.pdf
+2024-11-06 13:21:58,080 - INFO - Номер 87 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0054(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0054(ru).docx
+2024-11-06 13:21:58,100 - INFO - Номер 88 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0054.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0054.pdf
+2024-11-06 13:21:58,133 - INFO - Номер 89 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0055(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0055(ru).docx
+2024-11-06 13:21:58,149 - INFO - Номер 90 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0055.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0055.pdf
+2024-11-06 13:21:58,186 - INFO - Номер 91 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0062(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0062(ru).docx
+2024-11-06 13:21:58,204 - INFO - Номер 92 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0062.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0062.pdf
+2024-11-06 13:21:58,237 - INFO - Номер 93 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0063(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0063(ru).docx
+2024-11-06 13:21:58,253 - INFO - Номер 94 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0063.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\5_Сертиф облучения_21_RDKR-IC-B-2024-0063.pdf
+2024-11-06 13:21:58,321 - INFO - Номер 95 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0056(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0056(ru).docx
+2024-11-06 13:21:58,339 - INFO - Номер 96 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0056.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0056.pdf
+2024-11-06 13:21:58,381 - INFO - Номер 97 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0057(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0057(ru).docx
+2024-11-06 13:21:58,398 - INFO - Номер 98 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0057.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0057.pdf
+2024-11-06 13:21:58,429 - INFO - Номер 99 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0058(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0058(ru).docx
+2024-11-06 13:21:58,443 - INFO - Номер 100 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0058.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0058.pdf
+2024-11-06 13:21:58,473 - INFO - Номер 101 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0059(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0059(ru).docx
+2024-11-06 13:21:58,488 - INFO - Номер 102 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0059.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0059.pdf
+2024-11-06 13:21:58,522 - INFO - Номер 103 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0064(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0064(ru).docx
+2024-11-06 13:21:58,538 - INFO - Номер 104 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0064.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0064.pdf
+2024-11-06 13:21:58,588 - INFO - Номер 105 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0065(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0065(ru).docx
+2024-11-06 13:21:58,614 - INFO - Номер 106 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0065.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\6_Сертифт облучения_22_RDKR-IC-B-2024-0065.pdf
+2024-11-06 13:21:58,644 - INFO - Номер 107 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\7_Сертификат облучения TENMAK(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\7_Сертификат облучения TENMAK(ru).docx
+2024-11-06 13:21:58,660 - INFO - Номер 108 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\7_Сертификат облучения TENMAK.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\7_Сертификат облучения TENMAK.pdf
+2024-11-06 13:21:58,680 - INFO - Номер 109 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 20(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 20(ru).docx
+2024-11-06 13:21:58,697 - INFO - Номер 110 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 20.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 20.pdf
+2024-11-06 13:21:58,716 - INFO - Номер 111 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 21(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 21(ru).docx
+2024-11-06 13:21:58,735 - INFO - Номер 112 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 21.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 21.pdf
+2024-11-06 13:21:58,755 - INFO - Номер 113 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 22(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 22(ru).docx
+2024-11-06 13:21:58,770 - INFO - Номер 114 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 22.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\8_Production and quality control list 22.pdf
+2024-11-06 13:21:58,794 - INFO - Номер 115 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00020(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00020(ru).docx
+2024-11-06 13:21:58,808 - INFO - Номер 116 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00020.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00020.pdf
+2024-11-06 13:21:58,820 - INFO - Номер 117 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00021(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00021(ru).docx
+2024-11-06 13:21:58,835 - INFO - Номер 118 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00021.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00021.pdf
+2024-11-06 13:21:58,846 - INFO - Номер 119 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00022(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00022(ru).docx
+2024-11-06 13:21:58,861 - INFO - Номер 120 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00022.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\9_Гаран_талон_RDKR-WB00022.pdf
+2024-11-06 13:21:58,882 - INFO - Номер 121 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf
+2024-11-06 13:21:58,907 - INFO - Номер 122 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf
+2024-11-06 13:21:58,933 - INFO - Номер 123 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\Опись документов.xlsx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\Опись документов.xlsx
+2024-11-06 13:21:58,939 - INFO - Номер 124 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\СРОКИ.docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\СРОКИ.docx
+2024-11-06 13:21:58,954 - INFO - Номер 125 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\2_Отгруз_таблица_WB00020_WB00021_WB00022(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\2_Отгруз_таблица_WB00020_WB00021_WB00022(ru).docx
+2024-11-06 13:21:58,972 - INFO - Номер 126 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\2_Отгруз_таблица_WB00020_WB00021_WB00022.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\2_Отгруз_таблица_WB00020_WB00021_WB00022.pdf
+2024-11-06 13:21:59,000 - INFO - Номер 127 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\Брошюра WBDOSE eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\Брошюра WBDOSE eng.pdf
+2024-11-06 13:21:59,017 - INFO - Номер 128 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\Декларация CE WBDOSE eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\Декларация CE WBDOSE eng.pdf
+2024-11-06 13:21:59,031 - INFO - Номер 129 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\Протокол испытаний EMC eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\Протокол испытаний EMC eng.pdf
+2024-11-06 13:21:59,044 - INFO - Номер 130 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\Протокол испытаний LVD eng.pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\Протокол испытаний LVD eng.pdf
+2024-11-06 13:21:59,102 - INFO - Номер 131 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\WBDOSE eng_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\WBDOSE eng_перевод_(ru).pdf
+2024-11-06 13:21:59,210 - INFO - Номер 132 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Брошюра WBDOSE eng_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Брошюра WBDOSE eng_перевод_(ru).docx
+2024-11-06 13:21:59,225 - INFO - Номер 133 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Декларация CE WBDOSE eng_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Декларация CE WBDOSE eng_перевод_(ru).docx
+2024-11-06 13:21:59,263 - INFO - Номер 134 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Декларация CE WBDOSE eng_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Декларация CE WBDOSE eng_перевод_(ru).pdf
+2024-11-06 13:21:59,274 - INFO - Номер 135 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Протокол испытаний EMC eng_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Протокол испытаний EMC eng_перевод_(ru).docx
+2024-11-06 13:21:59,300 - INFO - Номер 136 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Протокол испытаний EMC eng_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Протокол испытаний EMC eng_перевод_(ru).pdf
+2024-11-06 13:21:59,310 - INFO - Номер 137 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Протокол испытаний LVD eng_перевод_(ru).docx и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Протокол испытаний LVD eng_перевод_(ru).docx
+2024-11-06 13:21:59,341 - INFO - Номер 138 успешно нанесен на файл C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Протокол испытаний LVD eng_перевод_(ru).pdf и сохранен как C:/Users/user/Desktop/рнрен\ЭД_WBDOSE\_На_перевод\ENG3\Протокол испытаний LVD eng_перевод_(ru).pdf
+2024-11-06 13:22:04,733 - INFO - Наименование документа обновлено с 'Отказное письмо по сертификации на Hague eng.pdf' на 'Explanatory Letter on certification '
+2024-11-06 13:22:04,734 - INFO - Наименование документа обновлено с 'Отказное письмо по сертификации на Hague eng_перевод_(ru).pdf' на 'Explanatory Letter on certification '
+2024-11-06 13:22:04,735 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142513.pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,735 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142513_перевод_(ru).docx' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,736 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142513_перевод_(ru).pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,737 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142514.pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,738 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142514_перевод_(ru).docx' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,739 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142514_перевод_(ru).pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,740 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142515.pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,741 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142515_перевод_(ru).docx' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,742 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142515_перевод_(ru).pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,743 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142516.pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,743 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142516_перевод_(ru).docx' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,744 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142516_перевод_(ru).pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,745 - INFO - Наименование документа обновлено с 'Отказное письмо по сертификации на Hague eng_перевод_(ru).docx' на 'Explanatory Letter on certification '
+2024-11-06 13:22:04,745 - INFO - Наименование документа обновлено с 'Отказное письмо по сертификации на Hague eng_перевод_(ru).pdf' на 'Explanatory Letter on certification '
+2024-11-06 13:22:04,753 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142517.pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,754 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142517_перевод_(ru).docx' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,755 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142517_перевод_(ru).pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,755 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142518.pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,756 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142518_перевод_(ru).docx' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,758 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142518_перевод_(ru).pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,759 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142519.pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,760 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142519_перевод_(ru).docx' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,761 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142519_перевод_(ru).pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,762 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142520.pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,763 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142520_перевод_(ru).docx' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,764 - INFO - Наименование документа обновлено с 'Сертификат калибровки CEV0142520_перевод_(ru).pdf' на 'Calibration Certificate / Verification Certificate'
+2024-11-06 13:22:04,871 - INFO - Наименование документа обновлено с 'Декларация CE WBDOSE eng.pdf' на 'Declaration'
+2024-11-06 13:22:04,872 - INFO - Наименование документа обновлено с 'Протокол испытаний EMC eng.pdf' на 'Protocol'
+2024-11-06 13:22:04,872 - INFO - Наименование документа обновлено с 'Протокол испытаний LVD eng.pdf' на 'Protocol'
+2024-11-06 13:22:04,875 - INFO - Наименование документа обновлено с 'Декларация CE WBDOSE eng_перевод_(ru).docx' на 'Declaration'
+2024-11-06 13:22:04,875 - INFO - Наименование документа обновлено с 'Декларация CE WBDOSE eng_перевод_(ru).pdf' на 'Declaration'
+2024-11-06 13:22:04,875 - INFO - Наименование документа обновлено с 'Протокол испытаний EMC eng_перевод_(ru).docx' на 'Protocol'
+2024-11-06 13:22:04,876 - INFO - Наименование документа обновлено с 'Протокол испытаний EMC eng_перевод_(ru).pdf' на 'Protocol'
+2024-11-06 13:22:04,877 - INFO - Наименование документа обновлено с 'Протокол испытаний LVD eng_перевод_(ru).docx' на 'Protocol'
+2024-11-06 13:22:04,877 - INFO - Наименование документа обновлено с 'Протокол испытаний LVD eng_перевод_(ru).pdf' на 'Protocol'
+2024-11-06 13:22:04,878 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:04,879 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:04,880 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:04,881 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:04,882 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:04,883 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:04,916 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:04,917 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:04,918 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:04,920 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:04,920 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:04,921 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:04,924 - INFO - Файл 'Аккуя_согл_ЭД_28143_23.07.24.pdf' переименован в 'Аккуя_согл_ЭД_28143_23.07.24.pdf'
+2024-11-06 13:22:04,927 - INFO - Файл 'Аккуя_согл_ЭД_28143_23.07.24_eng.docx' переименован в 'Аккуя_согл_ЭД_28143_23.07.24_eng.docx'
+2024-11-06 13:22:04,930 - INFO - Файл 'РЭ MARC7000 eng.pdf' переименован в 'РЭ MARC7000 eng.pdf'
+2024-11-06 13:22:04,934 - INFO - Файл 'РЭ MARC7000 ru.docx' переименован в 'РЭ MARC7000 ru.docx'
+2024-11-06 13:22:04,960 - INFO - Файл '10_Сертификат калибровки Calibration Certificate(ru).docx' переименован в '10_Сертификат калибровки Calibration Certificate(ru).docx'
+2024-11-06 13:22:04,963 - INFO - Файл '10_Сертификат калибровки Calibration Certificate.pdf' переименован в '10_Сертификат калибровки Calibration Certificate.pdf'
+2024-11-06 13:22:04,967 - INFO - Файл '11_Протокол испытаний EMC Test Report(ru).docx' переименован в '11_Протокол испытаний EMC Test Report(ru).docx'
+2024-11-06 13:22:04,970 - INFO - Файл '11_Протокол испытаний EMC Test Report.pdf' переименован в '11_Протокол испытаний EMC Test Report.pdf'
+2024-11-06 13:22:04,972 - INFO - Файл '12_Протокол испытаний LVD Test  Report(ru).docx' переименован в '12_Протокол испытаний LVD Test  Report(ru).docx'
+2024-11-06 13:22:04,974 - INFO - Файл '12_Протокол испытаний LVD Test  Report.pdf' переименован в '12_Протокол испытаний LVD Test  Report.pdf'
+2024-11-06 13:22:04,976 - INFO - Файл '13_Сертификат происхождения(ru).docx' переименован в '13_Сертификат происхождения(ru).docx'
+2024-11-06 13:22:04,979 - INFO - Файл '13_Сертификат происхождения.pdf' переименован в '13_Сертификат происхождения.pdf'
+2024-11-06 13:22:04,981 - INFO - Файл '14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_.pdf' переименован в '14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_.pdf'
+2024-11-06 13:22:04,983 - INFO - Файл '14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_eng.pdf' переименован в '14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_eng.pdf'
+2024-11-06 13:22:04,986 - INFO - Файл '15_Декларация СЕ WBDOSE-CE Declaration of Conformity(ru).docx' переименован в '15_Декларация СЕ WBDOSE-CE Declaration of Conformity(ru).docx'
+2024-11-06 13:22:04,988 - INFO - Файл '15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf' переименован в '15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf'
+2024-11-06 13:22:04,991 - INFO - Файл '16_Decleration СЕ_TEOS+100SERIES - Copy.pdf' переименован в '16_Decleration СЕ_TEOS+100SERIES - Copy.pdf'
+2024-11-06 13:22:04,994 - INFO - Файл '16_Decleration СЕ_TEOS+100SERIES(ru).docx' переименован в '16_Decleration СЕ_TEOS+100SERIES(ru).docx'
+2024-11-06 13:22:04,998 - INFO - Файл '16_Decleration СЕ_TEOS+100SERIES.pdf' переименован в '16_Decleration СЕ_TEOS+100SERIES.pdf'
+2024-11-06 13:22:05,001 - INFO - Файл '1_ЭТ на ПК_RDKR-WB00020(ru).docx' переименован в '1_ЭТ на ПК_RDKR-WB00020(ru).docx'
+2024-11-06 13:22:05,003 - INFO - Файл '1_ЭТ на ПК_RDKR-WB00020.pdf' переименован в '1_ЭТ на ПК_RDKR-WB00020.pdf'
+2024-11-06 13:22:05,005 - INFO - Файл '1_ЭТ на ПК_RDKR-WB00021(ru).docx' переименован в '1_ЭТ на ПК_RDKR-WB00021(ru).docx'
+2024-11-06 13:22:05,008 - INFO - Файл '1_ЭТ на ПК_RDKR-WB00021.pdf' переименован в '1_ЭТ на ПК_RDKR-WB00021.pdf'
+2024-11-06 13:22:05,010 - INFO - Файл '1_ЭТ на ПК_RDKR-WB00022(ru).docx' переименован в '1_ЭТ на ПК_RDKR-WB00022(ru).docx'
+2024-11-06 13:22:05,012 - INFO - Файл '1_ЭТ на ПК_RDKR-WB00022.pdf' переименован в '1_ЭТ на ПК_RDKR-WB00022.pdf'
+2024-11-06 13:22:05,014 - INFO - Файл '3_Dosimetry System Assessment Certificate 20(ru).docx' переименован в '3_Dosimetry System Assessment Certificate 20(ru).docx'
+2024-11-06 13:22:05,017 - INFO - Файл '3_Dosimetry System Assessment Certificate 20.pdf' переименован в '3_Dosimetry System Assessment Certificate 20.pdf'
+2024-11-06 13:22:05,019 - INFO - Файл '3_Dosimetry System Assessment Certificate 21(ru).docx' переименован в '3_Dosimetry System Assessment Certificate 21(ru).docx'
+2024-11-06 13:22:05,021 - INFO - Файл '3_Dosimetry System Assessment Certificate 21.pdf' переименован в '3_Dosimetry System Assessment Certificate 21.pdf'
+2024-11-06 13:22:05,024 - INFO - Файл '3_Dosimetry System Assessment Certificate 22.pdf' переименован в '3_Dosimetry System Assessment Certificate 22.pdf'
+2024-11-06 13:22:05,027 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0048(ru).docx' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0048(ru).docx'
+2024-11-06 13:22:05,029 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0048.pdf' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0048.pdf'
+2024-11-06 13:22:05,032 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0049(ru).docx' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0049(ru).docx'
+2024-11-06 13:22:05,034 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0049.pdf' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0049.pdf'
+2024-11-06 13:22:05,036 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0050(ru).docx' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0050(ru).docx'
+2024-11-06 13:22:05,038 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0050.pdf' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0050.pdf'
+2024-11-06 13:22:05,041 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0051(ru).docx' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0051(ru).docx'
+2024-11-06 13:22:05,043 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0051.pdf' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0051.pdf'
+2024-11-06 13:22:05,045 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0060(ru).docx' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0060(ru).docx'
+2024-11-06 13:22:05,047 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0060.pdf' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0060.pdf'
+2024-11-06 13:22:05,050 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0061(ru).docx' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0061(ru).docx'
+2024-11-06 13:22:05,052 - INFO - Файл '4_Сертификат облучения_20_RDKR-IC-B-2024-0061.pdf' переименован в '4_Сертификат облучения_20_RDKR-IC-B-2024-0061.pdf'
+2024-11-06 13:22:05,054 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0052(ru).docx' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0052(ru).docx'
+2024-11-06 13:22:05,057 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0052.pdf' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0052.pdf'
+2024-11-06 13:22:05,060 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0053(ru).docx' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0053(ru).docx'
+2024-11-06 13:22:05,064 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0053.pdf' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0053.pdf'
+2024-11-06 13:22:05,067 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0054(ru).docx' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0054(ru).docx'
+2024-11-06 13:22:05,069 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0054.pdf' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0054.pdf'
+2024-11-06 13:22:05,071 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0055(ru).docx' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0055(ru).docx'
+2024-11-06 13:22:05,073 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0055.pdf' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0055.pdf'
+2024-11-06 13:22:05,076 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0062(ru).docx' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0062(ru).docx'
+2024-11-06 13:22:05,078 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0062.pdf' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0062.pdf'
+2024-11-06 13:22:05,080 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0063(ru).docx' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0063(ru).docx'
+2024-11-06 13:22:05,082 - INFO - Файл '5_Сертиф облучения_21_RDKR-IC-B-2024-0063.pdf' переименован в '5_Сертиф облучения_21_RDKR-IC-B-2024-0063.pdf'
+2024-11-06 13:22:05,085 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0056(ru).docx' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0056(ru).docx'
+2024-11-06 13:22:05,087 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0056.pdf' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0056.pdf'
+2024-11-06 13:22:05,089 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0057(ru).docx' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0057(ru).docx'
+2024-11-06 13:22:05,092 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0057.pdf' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0057.pdf'
+2024-11-06 13:22:05,095 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0058(ru).docx' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0058(ru).docx'
+2024-11-06 13:22:05,097 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0058.pdf' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0058.pdf'
+2024-11-06 13:22:05,100 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0059(ru).docx' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0059(ru).docx'
+2024-11-06 13:22:05,102 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0059.pdf' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0059.pdf'
+2024-11-06 13:22:05,104 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0064(ru).docx' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0064(ru).docx'
+2024-11-06 13:22:05,106 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0064.pdf' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0064.pdf'
+2024-11-06 13:22:05,110 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0065(ru).docx' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0065(ru).docx'
+2024-11-06 13:22:05,112 - INFO - Файл '6_Сертифт облучения_22_RDKR-IC-B-2024-0065.pdf' переименован в '6_Сертифт облучения_22_RDKR-IC-B-2024-0065.pdf'
+2024-11-06 13:22:05,115 - INFO - Файл '7_Сертификат облучения TENMAK(ru).docx' переименован в '7_Сертификат облучения TENMAK(ru).docx'
+2024-11-06 13:22:05,117 - INFO - Файл '7_Сертификат облучения TENMAK.pdf' переименован в '7_Сертификат облучения TENMAK.pdf'
+2024-11-06 13:22:05,119 - INFO - Файл '8_Production and quality control list 20(ru).docx' переименован в '8_Production and quality control list 20(ru).docx'
+2024-11-06 13:22:05,121 - INFO - Файл '8_Production and quality control list 20.pdf' переименован в '8_Production and quality control list 20.pdf'
+2024-11-06 13:22:05,124 - INFO - Файл '8_Production and quality control list 21(ru).docx' переименован в '8_Production and quality control list 21(ru).docx'
+2024-11-06 13:22:05,127 - INFO - Файл '8_Production and quality control list 21.pdf' переименован в '8_Production and quality control list 21.pdf'
+2024-11-06 13:22:05,130 - INFO - Файл '8_Production and quality control list 22(ru).docx' переименован в '8_Production and quality control list 22(ru).docx'
+2024-11-06 13:22:05,134 - INFO - Файл '8_Production and quality control list 22.pdf' переименован в '8_Production and quality control list 22.pdf'
+2024-11-06 13:22:05,136 - INFO - Файл '9_Гаран_талон_RDKR-WB00020(ru).docx' переименован в '9_Гаран_талон_RDKR-WB00020(ru).docx'
+2024-11-06 13:22:05,138 - INFO - Файл '9_Гаран_талон_RDKR-WB00020.pdf' переименован в '9_Гаран_талон_RDKR-WB00020.pdf'
+2024-11-06 13:22:05,140 - INFO - Файл '9_Гаран_талон_RDKR-WB00021(ru).docx' переименован в '9_Гаран_талон_RDKR-WB00021(ru).docx'
+2024-11-06 13:22:05,143 - INFO - Файл '9_Гаран_талон_RDKR-WB00021.pdf' переименован в '9_Гаран_талон_RDKR-WB00021.pdf'
+2024-11-06 13:22:05,145 - INFO - Файл '9_Гаран_талон_RDKR-WB00022(ru).docx' переименован в '9_Гаран_талон_RDKR-WB00022(ru).docx'
+2024-11-06 13:22:05,147 - INFO - Файл '9_Гаран_талон_RDKR-WB00022.pdf' переименован в '9_Гаран_талон_RDKR-WB00022.pdf'
+2024-11-06 13:22:05,149 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:05,149 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:05,150 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf'
+2024-11-06 13:22:05,152 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:05,152 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:05,153 - INFO - Файл '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf' переименован в '_AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf'
+2024-11-06 13:22:05,156 - INFO - Файл 'СРОКИ.docx' переименован в 'СРОКИ.docx'
+2024-11-06 13:22:05,159 - INFO - Файл '2_Отгруз_таблица_WB00020_WB00021_WB00022(ru).docx' переименован в '2_Отгруз_таблица_WB00020_WB00021_WB00022(ru).docx'
+2024-11-06 13:22:05,161 - INFO - Файл '2_Отгруз_таблица_WB00020_WB00021_WB00022.pdf' переименован в '2_Отгруз_таблица_WB00020_WB00021_WB00022.pdf'
+2024-11-06 13:22:05,163 - INFO - Файл 'Брошюра WBDOSE eng.pdf' переименован в 'Брошюра WBDOSE eng.pdf'
+2024-11-06 13:22:05,166 - INFO - Файл '15_Декларация СЕ WBDOSE-CE Declaration of Conformity(ru).docx' переименован в 'Declaration'
+2024-11-06 13:22:05,166 - ERROR - Ошибка при переименовании файла 15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf: [WinError 183] Невозможно создать файл, так как он уже существует: 'C:/Users/user/Desktop/рнрен\\ЭД_WBDOSE\\15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf' -> 'C:/Users/user/Desktop/рнрен\\ЭД_WBDOSE\\Declaration'
+2024-11-06 13:22:05,173 - INFO - Файл 'WBDOSE eng_перевод_(ru).pdf' переименован в 'WBDOSE eng_перевод_(ru).pdf'
+2024-11-06 13:22:05,173 - ERROR - Ошибка при переименовании файла Декларация CE WBDOSE eng_перевод_(ru).pdf: [WinError 183] Невозможно создать файл, так как он уже существует: 'C:/Users/user/Desktop/рнрен\\ЭД_WBDOSE\\_На_перевод\\ENG3\\Декларация CE WBDOSE eng_перевод_(ru).pdf' -> 'C:/Users/user/Desktop/рнрен\\ЭД_WBDOSE\\_На_перевод\\ENG3\\WBDOSE eng_перевод_(ru).pdf'
+2024-11-06 13:22:05,175 - INFO - Файл 'Брошюра WBDOSE eng_перевод_(ru).docx' переименован в 'Брошюра WBDOSE eng_перевод_(ru).docx'
+2024-11-06 13:22:05,177 - ERROR - Ошибка при переименовании файла 15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf: [WinError 183] Невозможно создать файл, так как он уже существует: 'C:/Users/user/Desktop/рнрен\\ЭД_WBDOSE\\15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf' -> 'C:/Users/user/Desktop/рнрен\\ЭД_WBDOSE\\Declaration'
+2024-11-06 13:22:05,177 - INFO - Файл 'Declaration' переименован в 'Declaration'
+2024-11-06 13:22:05,179 - ERROR - Ошибка при переименовании файла 15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf: [WinError 183] Невозможно создать файл, так как он уже существует: 'C:/Users/user/Desktop/рнрен\\ЭД_WBDOSE\\15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf' -> 'C:/Users/user/Desktop/рнрен\\ЭД_WBDOSE\\Declaration'
+2024-11-06 13:22:05,180 - INFO - Файл 'Declaration' переименован в 'Declaration'
+2024-11-06 13:22:05,189 - INFO - Номер добавлен к документу: 1. _AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 2. _AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 3. Explanatory Letter on certification 
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 4. Explanatory Letter on certification 
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 5. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 6. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 7. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 8. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 9. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 10. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 11. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 12. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,190 - INFO - Номер добавлен к документу: 13. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 14. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 15. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 16. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 17. Explanatory Letter on certification 
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 18. Explanatory Letter on certification 
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 19. _AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 20. _AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 21. Аккуя_согл_ЭД_28143_23.07.24.pdf
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 22. Аккуя_согл_ЭД_28143_23.07.24_eng.docx
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 23. РЭ MARC7000 eng.pdf
+2024-11-06 13:22:05,191 - INFO - Номер добавлен к документу: 24. РЭ MARC7000 ru.docx
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 25. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 26. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 27. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 28. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 29. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 30. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 31. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 32. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 33. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 34. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 35. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 36. Calibration Certificate / Verification Certificate
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 37. 10_Сертификат калибровки Calibration Certificate(ru).docx
+2024-11-06 13:22:05,192 - INFO - Номер добавлен к документу: 38. 10_Сертификат калибровки Calibration Certificate.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 39. 11_Протокол испытаний EMC Test Report(ru).docx
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 40. 11_Протокол испытаний EMC Test Report.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 41. 12_Протокол испытаний LVD Test  Report(ru).docx
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 42. 12_Протокол испытаний LVD Test  Report.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 43. 13_Сертификат происхождения(ru).docx
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 44. 13_Сертификат происхождения.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 45. 14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 46. 14_AKU.1094.0.0.RK.DC0410_РЭ WBDOSE SYSTEM MANUAL_eng.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 47. 15_Декларация СЕ WBDOSE-CE Declaration of Conformity(ru).docx
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 48. 15_Декларация СЕ WBDOSE-CE Declaration of Conformity.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 49. 16_Decleration СЕ_TEOS+100SERIES - Copy.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 50. 16_Decleration СЕ_TEOS+100SERIES(ru).docx
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 51. 16_Decleration СЕ_TEOS+100SERIES.pdf
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 52. 1_ЭТ на ПК_RDKR-WB00020(ru).docx
+2024-11-06 13:22:05,193 - INFO - Номер добавлен к документу: 53. 1_ЭТ на ПК_RDKR-WB00020.pdf
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 54. 1_ЭТ на ПК_RDKR-WB00021(ru).docx
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 55. 1_ЭТ на ПК_RDKR-WB00021.pdf
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 56. 1_ЭТ на ПК_RDKR-WB00022(ru).docx
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 57. 1_ЭТ на ПК_RDKR-WB00022.pdf
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 58. 3_Dosimetry System Assessment Certificate 20(ru).docx
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 59. 3_Dosimetry System Assessment Certificate 20.pdf
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 60. 3_Dosimetry System Assessment Certificate 21(ru).docx
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 61. 3_Dosimetry System Assessment Certificate 21.pdf
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 62. 3_Dosimetry System Assessment Certificate 22.pdf
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 63. 4_Сертификат облучения_20_RDKR-IC-B-2024-0048(ru).docx
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 64. 4_Сертификат облучения_20_RDKR-IC-B-2024-0048.pdf
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 65. 4_Сертификат облучения_20_RDKR-IC-B-2024-0049(ru).docx
+2024-11-06 13:22:05,194 - INFO - Номер добавлен к документу: 66. 4_Сертификат облучения_20_RDKR-IC-B-2024-0049.pdf
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 67. 4_Сертификат облучения_20_RDKR-IC-B-2024-0050(ru).docx
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 68. 4_Сертификат облучения_20_RDKR-IC-B-2024-0050.pdf
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 69. 4_Сертификат облучения_20_RDKR-IC-B-2024-0051(ru).docx
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 70. 4_Сертификат облучения_20_RDKR-IC-B-2024-0051.pdf
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 71. 4_Сертификат облучения_20_RDKR-IC-B-2024-0060(ru).docx
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 72. 4_Сертификат облучения_20_RDKR-IC-B-2024-0060.pdf
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 73. 4_Сертификат облучения_20_RDKR-IC-B-2024-0061(ru).docx
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 74. 4_Сертификат облучения_20_RDKR-IC-B-2024-0061.pdf
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 75. 5_Сертиф облучения_21_RDKR-IC-B-2024-0052(ru).docx
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 76. 5_Сертиф облучения_21_RDKR-IC-B-2024-0052.pdf
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 77. 5_Сертиф облучения_21_RDKR-IC-B-2024-0053(ru).docx
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 78. 5_Сертиф облучения_21_RDKR-IC-B-2024-0053.pdf
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 79. 5_Сертиф облучения_21_RDKR-IC-B-2024-0054(ru).docx
+2024-11-06 13:22:05,195 - INFO - Номер добавлен к документу: 80. 5_Сертиф облучения_21_RDKR-IC-B-2024-0054.pdf
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 81. 5_Сертиф облучения_21_RDKR-IC-B-2024-0055(ru).docx
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 82. 5_Сертиф облучения_21_RDKR-IC-B-2024-0055.pdf
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 83. 5_Сертиф облучения_21_RDKR-IC-B-2024-0062(ru).docx
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 84. 5_Сертиф облучения_21_RDKR-IC-B-2024-0062.pdf
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 85. 5_Сертиф облучения_21_RDKR-IC-B-2024-0063(ru).docx
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 86. 5_Сертиф облучения_21_RDKR-IC-B-2024-0063.pdf
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 87. 6_Сертифт облучения_22_RDKR-IC-B-2024-0056(ru).docx
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 88. 6_Сертифт облучения_22_RDKR-IC-B-2024-0056.pdf
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 89. 6_Сертифт облучения_22_RDKR-IC-B-2024-0057(ru).docx
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 90. 6_Сертифт облучения_22_RDKR-IC-B-2024-0057.pdf
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 91. 6_Сертифт облучения_22_RDKR-IC-B-2024-0058(ru).docx
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 92. 6_Сертифт облучения_22_RDKR-IC-B-2024-0058.pdf
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 93. 6_Сертифт облучения_22_RDKR-IC-B-2024-0059(ru).docx
+2024-11-06 13:22:05,196 - INFO - Номер добавлен к документу: 94. 6_Сертифт облучения_22_RDKR-IC-B-2024-0059.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 95. 6_Сертифт облучения_22_RDKR-IC-B-2024-0064(ru).docx
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 96. 6_Сертифт облучения_22_RDKR-IC-B-2024-0064.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 97. 6_Сертифт облучения_22_RDKR-IC-B-2024-0065(ru).docx
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 98. 6_Сертифт облучения_22_RDKR-IC-B-2024-0065.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 99. 7_Сертификат облучения TENMAK(ru).docx
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 100. 7_Сертификат облучения TENMAK.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 101. 8_Production and quality control list 20(ru).docx
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 102. 8_Production and quality control list 20.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 103. 8_Production and quality control list 21(ru).docx
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 104. 8_Production and quality control list 21.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 105. 8_Production and quality control list 22(ru).docx
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 106. 8_Production and quality control list 22.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 107. 9_Гаран_талон_RDKR-WB00020(ru).docx
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 108. 9_Гаран_талон_RDKR-WB00020.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 109. 9_Гаран_талон_RDKR-WB00021(ru).docx
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 110. 9_Гаран_талон_RDKR-WB00021.pdf
+2024-11-06 13:22:05,197 - INFO - Номер добавлен к документу: 111. 9_Гаран_талон_RDKR-WB00022(ru).docx
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 112. 9_Гаран_талон_RDKR-WB00022.pdf
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 113. _AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24.pdf
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 114. _AKU.1094.0.0.RK.DC0422_РАСУ_РД_соглас_10.07.24_eng.pdf
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 115. СРОКИ.docx
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 116. 2_Отгруз_таблица_WB00020_WB00021_WB00022(ru).docx
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 117. 2_Отгруз_таблица_WB00020_WB00021_WB00022.pdf
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 118. Брошюра WBDOSE eng.pdf
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 119. Declaration
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 120. Protocol
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 121. Protocol
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 122. WBDOSE eng_перевод_(ru).pdf
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 123. Брошюра WBDOSE eng_перевод_(ru).docx
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 124. Declaration
+2024-11-06 13:22:05,198 - INFO - Номер добавлен к документу: 125. Declaration
+2024-11-06 13:22:05,199 - INFO - Номер добавлен к документу: 126. Protocol
+2024-11-06 13:22:05,199 - INFO - Номер добавлен к документу: 127. Protocol
+2024-11-06 13:22:05,199 - INFO - Номер добавлен к документу: 128. Protocol
+2024-11-06 13:22:05,199 - INFO - Номер добавлен к документу: 129. Protocol
+2024-11-06 13:22:05,265 - INFO - Опись сохранена: C:/Users/user/Desktop/рнрен\опись.docx
+2024-11-06 13:23:39,946 - INFO - Архив C:/Users/user/Downloads/ЭД_WBDOSE.zip успешно извлечён в C:/Users/user/Desktop/рнрен.
+2024-11-06 13:23:41,769 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_WBDOSE.zip завершён успешно.
+2024-11-06 13:23:41,846 - INFO - Архив C:/Users/user/Downloads/ЭД_MARC.zip успешно извлечён в C:/Users/user/Desktop/рнрен.
+2024-11-06 13:23:42,371 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_MARC.zip завершён успешно.
+2024-11-06 13:23:42,430 - INFO - Архив C:/Users/user/Downloads/ЭД_Hague.zip успешно извлечён в C:/Users/user/Desktop/рнрен.
+2024-11-06 13:23:42,854 - INFO - Процесс извлечения для C:/Users/user/Downloads/ЭД_Hague.zip завершён успешно.
